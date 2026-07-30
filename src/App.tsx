@@ -17,6 +17,11 @@ const phoneDisplay = '347-350-9660'
 const phoneHref = 'tel:13473509660'
 const smsHref = 'sms:13473509660'
 const whatsappHref = 'https://wa.me/13473509660'
+const addressDisplay = '381 Troy Avenue, Brooklyn, NY 11213'
+const mapsUrl =
+  'https://www.google.com/maps/search/?api=1&query=381%20Troy%20Avenue%2C%20Brooklyn%2C%20NY%2011213'
+const mapsEmbedUrl =
+  'https://www.google.com/maps?q=381%20Troy%20Avenue%2C%20Brooklyn%2C%20NY%2011213&output=embed'
 
 const services = [
   {
@@ -477,18 +482,44 @@ function App() {
                 <Send aria-hidden="true" className="text-rose-200" size={22} />
                 Message us on WhatsApp
               </a>
-              <div className="flex items-start gap-3">
-                <MapPin aria-hidden="true" className="mt-1 text-rose-200" size={22} />
+              <a
+                className="flex items-start gap-3 transition hover:text-rose-200"
+                href={mapsUrl}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <MapPin
+                  aria-hidden="true"
+                  className="mt-1 text-rose-200"
+                  size={22}
+                />
                 <address className="not-italic">
                   381 Troy Avenue
                   <br />
                   Brooklyn, NY 11213
                 </address>
-              </div>
+              </a>
             </div>
           </div>
 
           <div className="scroll-reveal reveal-right bg-[#f8f4ec] p-5 text-neutral-950 shadow-2xl shadow-black/30 sm:p-8">
+            <div className="mb-6 overflow-hidden border border-neutral-950/10 bg-white">
+              <iframe
+                className="h-64 w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                src={mapsEmbedUrl}
+                title={`Map to ${addressDisplay}`}
+              />
+              <a
+                className="block border-t border-neutral-950/10 px-4 py-3 text-sm font-semibold text-rose-900 transition hover:bg-rose-50"
+                href={mapsUrl}
+                rel="noreferrer"
+                target="_blank"
+              >
+                Open 381 Troy Avenue in Google Maps
+              </a>
+            </div>
             <div className="mb-6">
               <p className="text-sm font-bold uppercase text-rose-800">
                 Estimate details
