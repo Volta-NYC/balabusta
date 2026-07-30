@@ -351,7 +351,6 @@ function App() {
       </section>
 
       <section id="values" className="relative overflow-hidden bg-neutral-950 px-5 py-20 text-white sm:px-8">
-        <div aria-hidden="true" className="islamic-geometry values-geometry" />
         <div className="mx-auto max-w-7xl">
           <div className="scroll-reveal reveal-up max-w-3xl">
             <p className="text-sm font-bold uppercase text-rose-200">

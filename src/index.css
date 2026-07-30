@@ -41,12 +41,20 @@ textarea {
 .site-shell {
   position: relative;
   isolation: isolate;
-  background:
-    linear-gradient(rgba(248, 244, 236, 0.78), rgba(248, 244, 236, 0.8)),
-    url("/islamic-pattern.svg");
-  background-attachment: fixed;
+  background: #f8f4ec;
   background-color: #f8f4ec;
-  background-size: auto, 144px 144px;
+}
+
+.site-shell::before {
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+  pointer-events: none;
+  content: "";
+  background-image: url("/islamic-pattern.svg");
+  background-position: center top;
+  background-size: 168px 168px;
+  opacity: 0.12;
 }
 
 .hero-section {
@@ -55,17 +63,6 @@ textarea {
     url("/new-york-skyline.jpg");
   background-position: center;
   background-size: cover;
-}
-
-.islamic-geometry {
-  position: absolute;
-  background-image: url("/islamic-pattern.svg");
-  background-size: 144px 144px;
-}
-
-.values-geometry {
-  inset: 0;
-  opacity: 0.26;
 }
 
 .geometric-frame::before {
@@ -90,11 +87,7 @@ textarea {
 }
 
 .geometric-band {
-  background-image:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(30deg, rgba(190, 117, 42, 0.22) 1px, transparent 1px),
-    linear-gradient(150deg, rgba(12, 87, 79, 0.22) 1px, transparent 1px);
-  background-size: 48px 48px;
+  background: #080808;
 }
 
 .scroll-reveal {
@@ -146,9 +139,8 @@ textarea {
 }
 
 @media (max-width: 768px) {
-  .site-shell {
-    background-attachment: scroll;
-    background-size: auto, 120px 120px;
+  .site-shell::before {
+    background-size: 136px 136px;
   }
 }
 
