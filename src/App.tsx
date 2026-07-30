@@ -448,37 +448,57 @@ function App() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-5 px-5 py-20 sm:px-8 lg:grid-cols-3">
-        <article className="scroll-reveal reveal-left bg-rose-900 p-8 text-white">
-          <ShieldCheck aria-hidden="true" size={30} />
-          <h2 className="mt-8 font-serif text-2xl font-semibold">
-            Licensed and insured by the State of NY.
-          </h2>
-        </article>
-        <article
-          className="scroll-reveal reveal-up border border-neutral-950/10 bg-white p-8"
-          style={revealStyle(1)}
-        >
-          <Languages aria-hidden="true" className="text-rose-800" size={30} />
-          <h2 className="mt-8 font-serif text-2xl font-semibold">
-            Yes, we speak Spanish.
-          </h2>
-          <p className="mt-3 text-neutral-700">
-            Tambien hablamos Espanol.
-          </p>
-        </article>
-        <article
-          className="scroll-reveal reveal-right border border-neutral-950/10 bg-white p-8"
-          style={revealStyle(2)}
-        >
-          <BadgeCheck aria-hidden="true" className="text-rose-800" size={30} />
-          <h2 className="mt-8 font-serif text-2xl font-semibold">
-            Available to help you anytime.
-          </h2>
-          <p className="mt-3 text-neutral-700">
-            Request an estimate, call, text, or use WhatsApp at {phoneDisplay}.
-          </p>
-        </article>
+      <section className="proof-section px-5 py-20 sm:px-8">
+        <div className="mx-auto grid max-w-7xl gap-4 lg:grid-cols-[1.08fr_0.96fr_0.96fr]">
+          <article className="proof-card proof-card-red scroll-reveal reveal-left">
+            <div className="flex items-start justify-between gap-6">
+              <ShieldCheck aria-hidden="true" size={34} />
+              <span className="proof-card-number">01</span>
+            </div>
+            <p className="mt-10 text-sm font-bold uppercase text-white/65">
+              Covered
+            </p>
+            <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight">
+              Licensed and insured by the State of NY.
+            </h2>
+          </article>
+          <article
+            className="proof-card proof-card-crimson scroll-reveal reveal-up"
+            style={revealStyle(1)}
+          >
+            <div className="flex items-start justify-between gap-6">
+              <Languages aria-hidden="true" size={34} />
+              <span className="proof-card-number">02</span>
+            </div>
+            <p className="mt-10 text-sm font-bold uppercase text-white/65">
+              Bilingual
+            </p>
+            <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight">
+              Yes, we speak Spanish.
+            </h2>
+            <p className="mt-4 text-lg text-white/75">
+              Tambien hablamos Espanol.
+            </p>
+          </article>
+          <article
+            className="proof-card proof-card-burgundy scroll-reveal reveal-right"
+            style={revealStyle(2)}
+          >
+            <div className="flex items-start justify-between gap-6">
+              <BadgeCheck aria-hidden="true" size={34} />
+              <span className="proof-card-number">03</span>
+            </div>
+            <p className="mt-10 text-sm font-bold uppercase text-white/65">
+              Responsive
+            </p>
+            <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight">
+              Available to help you anytime.
+            </h2>
+            <p className="mt-4 text-lg text-white/75">
+              Request an estimate, call, text, or use WhatsApp at {phoneDisplay}.
+            </p>
+          </article>
+        </div>
       </section>
 
       <section id="contact" className="bg-neutral-950 px-5 py-20 text-white sm:px-8">

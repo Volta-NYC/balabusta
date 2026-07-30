@@ -178,6 +178,100 @@ textarea {
   background: #080808;
 }
 
+.proof-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(115deg, rgba(167, 0, 61, 0.24), transparent 34%),
+    linear-gradient(245deg, rgba(167, 0, 61, 0.18), transparent 38%),
+    #f8f4ec;
+}
+
+.proof-section::before {
+  position: absolute;
+  inset: auto -10% -42% -10%;
+  height: 78%;
+  content: "";
+  background: #2a000f;
+  transform: skewY(-3deg);
+  transform-origin: center;
+}
+
+.proof-card {
+  position: relative;
+  min-height: 310px;
+  overflow: hidden;
+  padding: 2rem;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 24px 60px rgba(8, 8, 8, 0.22);
+}
+
+.proof-card::before,
+.proof-card::after {
+  position: absolute;
+  pointer-events: none;
+  content: "";
+}
+
+.proof-card::before {
+  inset: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.proof-card::after {
+  width: 18rem;
+  height: 18rem;
+  right: -5rem;
+  bottom: -6rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 72% 0 72% 72%;
+  transform: rotate(45deg);
+  animation: proof-droplet 11s ease-in-out infinite alternate;
+}
+
+.proof-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.proof-card-red {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 30%),
+    #9f003a;
+}
+
+.proof-card-crimson {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 30%),
+    linear-gradient(315deg, rgba(190, 117, 42, 0.24), transparent 46%),
+    #b00040;
+}
+
+.proof-card-burgundy {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent 32%),
+    linear-gradient(315deg, rgba(167, 0, 61, 0.48), transparent 44%),
+    #5f0023;
+}
+
+.proof-card-number {
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  font-weight: 800;
+  line-height: 0.8;
+  color: rgba(255, 255, 255, 0.17);
+}
+
+@media (min-width: 1024px) {
+  .proof-card-crimson {
+    margin-top: 2rem;
+  }
+
+  .proof-card-burgundy {
+    margin-top: -1.5rem;
+  }
+}
+
 .scroll-reveal {
   --reveal-x: 0;
   --reveal-y: 0;
@@ -269,6 +363,16 @@ textarea {
   }
 }
 
+@keyframes proof-droplet {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(45deg) scale(1);
+  }
+
+  100% {
+    transform: translate3d(-1.5rem, -1rem, 0) rotate(52deg) scale(1.12);
+  }
+}
+
 @media (max-width: 768px) {
   .site-shell::before {
     background-size: 136px 136px;
@@ -281,6 +385,10 @@ textarea {
 
   .fluid-droplet:nth-of-type(n + 6) {
     display: none;
+  }
+
+  .proof-card {
+    min-height: 280px;
   }
 }
 
@@ -296,7 +404,8 @@ textarea {
 
   .fluid-current,
   .fluid-droplet,
-  .fluid-droplet-ripple {
+  .fluid-droplet-ripple,
+  .proof-card::after {
     animation: none;
   }
 
