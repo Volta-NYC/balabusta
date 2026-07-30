@@ -500,10 +500,7 @@ function App() {
                 </address>
               </a>
             </div>
-          </div>
-
-          <div className="scroll-reveal reveal-right bg-[#f8f4ec] p-5 text-neutral-950 shadow-2xl shadow-black/30 sm:p-8">
-            <div className="mb-6 overflow-hidden border border-neutral-950/10 bg-white">
+            <div className="mt-8 max-w-xl overflow-hidden border border-white/10 bg-[#f8f4ec] text-neutral-950 shadow-2xl shadow-black/30">
               <iframe
                 className="h-64 w-full"
                 loading="lazy"
@@ -520,6 +517,9 @@ function App() {
                 Open 381 Troy Avenue in Google Maps
               </a>
             </div>
+          </div>
+
+          <div className="scroll-reveal reveal-right bg-[#f8f4ec] p-5 text-neutral-950 shadow-2xl shadow-black/30 sm:p-8">
             <div className="mb-6">
               <p className="text-sm font-bold uppercase text-rose-800">
                 Estimate details
