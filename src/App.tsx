@@ -91,14 +91,38 @@ const socialLinks = [
   { label: 'Instagram', href: 'https://www.instagram.com/balabustabrooklyn' },
 ]
 
+const estimateFields = {
+  services: [
+    'Residential cleaning',
+    'Commercial cleaning',
+    'Housekeeping / maids',
+    'Cleaning ladies',
+    'Nannies / household support',
+  ],
+  properties: [
+    'Apartment',
+    'House',
+    'Office',
+    'Storefront',
+    'Building / shared space',
+    'Other',
+  ],
+  frequencies: ['One-time', 'Weekly', 'Biweekly', 'Monthly', 'Not sure yet'],
+}
+
 function App() {
   function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
     const formData = new FormData(event.currentTarget)
     const message = [
+      'Estimate request for Balabusta Inc.',
       `Name: ${formData.get('name') ?? ''}`,
       `Email: ${formData.get('email') ?? ''}`,
+      `Phone: ${formData.get('phone') ?? ''}`,
+      `Service: ${formData.get('service') ?? ''}`,
+      `Property: ${formData.get('property') ?? ''}`,
+      `Frequency: ${formData.get('frequency') ?? ''}`,
       `Message: ${formData.get('message') ?? ''}`,
     ].join('\n')
 
@@ -198,6 +222,7 @@ function App() {
           <span>Residential Cleaning</span>
           <span>Cleaning Ladies</span>
           <span>Maids</span>
+          <span>Nannies</span>
           <span>Call or text {phoneDisplay}</span>
         </div>
       </section>
@@ -359,29 +384,95 @@ function App() {
           </div>
 
           <div className="bg-[#f8f4ec] p-5 text-neutral-950 shadow-2xl shadow-black/30 sm:p-8">
+            <div className="mb-6">
+              <p className="text-sm font-bold uppercase text-rose-800">
+                Estimate details
+              </p>
+              <h3 className="mt-2 font-serif text-3xl font-semibold">
+                Request cleaning service
+              </h3>
+            </div>
             <form className="grid gap-5" onSubmit={handleContactSubmit}>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <label className="grid gap-2 text-sm font-semibold">
+                  Name
+                  <input
+                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
+                    name="name"
+                    type="text"
+                  />
+                </label>
+                <label className="grid gap-2 text-sm font-semibold">
+                  Email*
+                  <input
+                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
+                    name="email"
+                    required
+                    type="email"
+                  />
+                </label>
+              </div>
               <label className="grid gap-2 text-sm font-semibold">
-                Name
+                Phone
                 <input
                   className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
-                  name="name"
-                  type="text"
+                  name="phone"
+                  type="tel"
                 />
               </label>
-              <label className="grid gap-2 text-sm font-semibold">
-                Email*
-                <input
-                  className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
-                  name="email"
-                  required
-                  type="email"
-                />
-              </label>
+              <div className="grid gap-5 sm:grid-cols-3">
+                <label className="grid gap-2 text-sm font-semibold">
+                  Service needed
+                  <select
+                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
+                    defaultValue=""
+                    name="service"
+                  >
+                    <option disabled value="">
+                      Select
+                    </option>
+                    {estimateFields.services.map((service) => (
+                      <option key={service}>{service}</option>
+                    ))}
+                  </select>
+                </label>
+                <label className="grid gap-2 text-sm font-semibold">
+                  Property type
+                  <select
+                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
+                    defaultValue=""
+                    name="property"
+                  >
+                    <option disabled value="">
+                      Select
+                    </option>
+                    {estimateFields.properties.map((property) => (
+                      <option key={property}>{property}</option>
+                    ))}
+                  </select>
+                </label>
+                <label className="grid gap-2 text-sm font-semibold">
+                  Frequency
+                  <select
+                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
+                    defaultValue=""
+                    name="frequency"
+                  >
+                    <option disabled value="">
+                      Select
+                    </option>
+                    {estimateFields.frequencies.map((frequency) => (
+                      <option key={frequency}>{frequency}</option>
+                    ))}
+                  </select>
+                </label>
+              </div>
               <label className="grid gap-2 text-sm font-semibold">
                 Message
                 <textarea
                   className="min-h-36 resize-y border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
                   name="message"
+                  placeholder="Tell us the size of the space, preferred timing, and anything that needs special attention."
                 />
               </label>
               <button
