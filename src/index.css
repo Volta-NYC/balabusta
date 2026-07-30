@@ -145,6 +145,112 @@ textarea {
   animation-delay: calc(var(--drop-delay) + 900ms);
 }
 
+.site-header {
+  border-bottom: 1px solid rgba(8, 8, 8, 0.12);
+  background:
+    linear-gradient(90deg, rgba(248, 244, 236, 0.92), rgba(255, 255, 255, 0.72)),
+    linear-gradient(135deg, rgba(159, 0, 58, 0.1), transparent 36%),
+    rgba(248, 244, 236, 0.88);
+  box-shadow: 0 16px 36px rgba(8, 8, 8, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.site-header::after {
+  display: block;
+  height: 4px;
+  content: "";
+  background:
+    linear-gradient(90deg, #9f003a 0 34%, #be752a 34% 48%, #063f39 48% 100%);
+}
+
+.brand-lockup {
+  position: relative;
+  padding: 0.35rem 0.85rem 0.35rem 0.35rem;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(8, 8, 8, 0.08);
+  box-shadow: 0 10px 22px rgba(8, 8, 8, 0.08);
+}
+
+.brand-lockup::after {
+  position: absolute;
+  right: -0.55rem;
+  bottom: -0.55rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  content: "";
+  border-right: 2px solid rgba(159, 0, 58, 0.55);
+  border-bottom: 2px solid rgba(159, 0, 58, 0.55);
+}
+
+.nav-links {
+  padding: 0.35rem;
+  background: rgba(255, 255, 255, 0.52);
+  border: 1px solid rgba(8, 8, 8, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.36);
+}
+
+.nav-links a {
+  position: relative;
+  padding: 0.7rem 0.95rem;
+  overflow: hidden;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.nav-links a::after {
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0.45rem;
+  height: 2px;
+  content: "";
+  background: #9f003a;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.nav-links a:hover {
+  color: #9f003a;
+  background: rgba(159, 0, 58, 0.08);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-cta {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 38%),
+    #080808;
+  box-shadow: 0 12px 24px rgba(8, 8, 8, 0.2);
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.nav-cta::before {
+  position: absolute;
+  inset: -40% auto -40% -45%;
+  width: 70%;
+  content: "";
+  background: rgba(190, 117, 42, 0.35);
+  transform: skewX(-18deg);
+  transition: transform 220ms ease;
+}
+
+.nav-cta:hover {
+  transform: translateY(-1px);
+  background-color: #9f003a;
+}
+
+.nav-cta:hover::before {
+  transform: translateX(135%) skewX(-18deg);
+}
+
 .hero-section {
   background:
     linear-gradient(rgba(248, 244, 236, 0.66), rgba(248, 244, 236, 0.74)),

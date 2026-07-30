@@ -249,19 +249,19 @@ function App() {
   return (
     <main className="site-shell min-h-screen text-neutral-950">
       <FluidBackground />
-      <header className="sticky top-0 z-30 border-b border-neutral-950/10 bg-[#f8f4ec]/90 backdrop-blur">
+      <header className="site-header sticky top-0 z-30">
         <nav
           aria-label="Main navigation"
-          className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8"
+          className="nav-shell mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8"
         >
           <a
             href="#home"
-            className="flex items-center gap-3 text-neutral-950"
+            className="brand-lockup flex items-center gap-3 text-neutral-950"
             aria-label="Balabusta Inc. home"
           >
             <img
               alt=""
-              className="h-10 w-10 rounded-md"
+              className="h-11 w-11 rounded-md"
               height="40"
               src="/logo.svg"
               width="40"
@@ -275,22 +275,22 @@ function App() {
               </span>
             </span>
           </a>
-          <div className="hidden items-center gap-7 text-sm font-medium text-neutral-700 md:flex">
-            <a className="transition hover:text-neutral-950" href="#services">
+          <div className="nav-links hidden items-center gap-1 text-sm font-semibold text-neutral-800 md:flex">
+            <a href="#services">
               Services
             </a>
-            <a className="transition hover:text-neutral-950" href="#values">
+            <a href="#values">
               Values
             </a>
-            <a className="transition hover:text-neutral-950" href="#areas">
+            <a href="#areas">
               Areas
             </a>
-            <a className="transition hover:text-neutral-950" href="#contact">
+            <a href="#contact">
               Estimate
             </a>
           </div>
           <a
-            className="inline-flex items-center rounded-full bg-neutral-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-rose-900"
+            className="nav-cta inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold text-white"
             href="#contact"
           >
             Contact us
@@ -453,7 +453,7 @@ function App() {
           <article className="proof-card proof-card-red scroll-reveal reveal-left">
             <div className="flex items-start justify-between gap-6">
               <ShieldCheck aria-hidden="true" size={34} />
-              <span className="proof-card-number">01</span>
+              <span className="proof-card-number">1</span>
             </div>
             <p className="mt-10 text-sm font-bold uppercase text-white/65">
               Covered
@@ -468,7 +468,7 @@ function App() {
           >
             <div className="flex items-start justify-between gap-6">
               <Languages aria-hidden="true" size={34} />
-              <span className="proof-card-number">02</span>
+              <span className="proof-card-number">2</span>
             </div>
             <p className="mt-10 text-sm font-bold uppercase text-white/65">
               Bilingual
@@ -486,7 +486,7 @@ function App() {
           >
             <div className="flex items-start justify-between gap-6">
               <BadgeCheck aria-hidden="true" size={34} />
-              <span className="proof-card-number">03</span>
+              <span className="proof-card-number">3</span>
             </div>
             <p className="mt-10 text-sm font-bold uppercase text-white/65">
               Responsive
