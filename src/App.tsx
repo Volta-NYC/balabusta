@@ -622,7 +622,7 @@ function App() {
         </div>
       </section>
 
-      <footer className="border-t border-neutral-950/10 bg-neutral-950 px-5 py-14 text-white sm:px-8">
+      <footer className="border-t border-teal-950 bg-[#063f39] px-5 py-14 text-white sm:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
@@ -635,26 +635,26 @@ function App() {
               />
               <div>
                 <p className="text-2xl font-bold">Balabusta Inc.</p>
-                <p className="mt-1 text-sm font-semibold uppercase text-white/55">
+                <p className="mt-1 text-sm font-semibold uppercase text-teal-100/65">
                   Professional Cleaning
                 </p>
               </div>
             </div>
-            <p className="mt-6 max-w-sm leading-7 text-white/70">
+            <p className="mt-6 max-w-sm leading-7 text-teal-50/75">
               Reliable residential and commercial cleaning support across key
               NYC boroughs, New Jersey, Connecticut, and surrounding areas.
             </p>
-            <p className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-rose-100">
+            <p className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-100">
               <ShieldCheck aria-hidden="true" size={17} />
               Licensed and insured by the State of NY
             </p>
           </div>
 
           <div>
-            <h2 className="text-sm font-bold uppercase text-rose-200">
+            <h2 className="text-sm font-bold uppercase text-amber-100">
               Services
             </h2>
-            <ul className="mt-5 space-y-3 text-white/70">
+            <ul className="mt-5 space-y-3 text-teal-50/75">
               {services.map((service) => (
                 <li key={service.title}>
                   <a className="transition hover:text-white" href="#services">
@@ -666,10 +666,10 @@ function App() {
           </div>
 
           <div>
-            <h2 className="text-sm font-bold uppercase text-rose-200">
+            <h2 className="text-sm font-bold uppercase text-amber-100">
               Primary Areas
             </h2>
-            <ul className="mt-5 space-y-3 text-white/70">
+            <ul className="mt-5 space-y-3 text-teal-50/75">
               {serviceAreas
                 .filter((area) => area.featured)
                 .map((area) => (
@@ -683,10 +683,10 @@ function App() {
           </div>
 
           <div>
-            <h2 className="text-sm font-bold uppercase text-rose-200">
+            <h2 className="text-sm font-bold uppercase text-amber-100">
               Contact
             </h2>
-            <div className="mt-5 space-y-4 text-white/70">
+            <div className="mt-5 space-y-4 text-teal-50/75">
               <a
                 className="flex items-center gap-3 transition hover:text-white"
                 href={phoneHref}
@@ -719,7 +719,7 @@ function App() {
               <div className="flex flex-wrap gap-4 pt-2">
                 {socialLinks.map((link) => (
                   <a
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-rose-200"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-amber-100"
                     href={link.href}
                     key={link.label}
                     rel="noreferrer"
@@ -735,7 +735,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-3 border-t border-teal-100/15 pt-6 text-sm text-teal-50/55 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright © 2020 BALABUSTA INC. - All Rights Reserved.</p>
           <a className="font-semibold transition hover:text-white" href="#contact">
             Request an estimate
