@@ -396,11 +396,7 @@ function App() {
                 <div
                   className={`scroll-reveal ${
                     revealDirections[index % revealDirections.length]
-                  } ${
-                    area.featured
-                      ? 'border-rose-900 bg-rose-900 text-white shadow-lg shadow-rose-950/10'
-                      : 'border-neutral-950/10 bg-[#f8f4ec] text-neutral-800'
-                  } border px-4 py-3 text-sm font-semibold`}
+                  } border border-rose-900 bg-rose-900 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-950/10`}
                   key={area.name}
                   style={revealStyle(index, 35)}
                 >
