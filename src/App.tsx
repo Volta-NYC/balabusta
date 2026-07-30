@@ -112,8 +112,47 @@ const revealDirections = [
   'reveal-right',
 ]
 
+const fluidDroplets = [
+  { x: '6vw', size: '46px', delay: '-8s', duration: '24s', drift: '34px' },
+  { x: '18vw', size: '28px', delay: '-2s', duration: '18s', drift: '-26px' },
+  { x: '33vw', size: '64px', delay: '-14s', duration: '28s', drift: '44px' },
+  { x: '51vw', size: '34px', delay: '-5s', duration: '20s', drift: '-34px' },
+  { x: '68vw', size: '54px', delay: '-11s', duration: '26s', drift: '28px' },
+  { x: '84vw', size: '30px', delay: '-3s', duration: '19s', drift: '-38px' },
+  { x: '94vw', size: '72px', delay: '-18s', duration: '31s', drift: '22px' },
+]
+
 function revealStyle(index: number, step = 90): CSSProperties {
   return { '--reveal-delay': `${index * step}ms` } as CSSProperties
+}
+
+function dropletStyle(droplet: (typeof fluidDroplets)[number]): CSSProperties {
+  return {
+    '--drop-x': droplet.x,
+    '--drop-size': droplet.size,
+    '--drop-delay': droplet.delay,
+    '--drop-duration': droplet.duration,
+    '--drop-drift': droplet.drift,
+  } as CSSProperties
+}
+
+function FluidBackground() {
+  return (
+    <div aria-hidden="true" className="fluid-background">
+      <span className="fluid-current fluid-current-a" />
+      <span className="fluid-current fluid-current-b" />
+      {fluidDroplets.map((droplet) => (
+        <span
+          className="fluid-droplet"
+          key={`${droplet.x}-${droplet.size}`}
+          style={dropletStyle(droplet)}
+        >
+          <span className="fluid-droplet-shine" />
+          <span className="fluid-droplet-ripple" />
+        </span>
+      ))}
+    </div>
+  )
 }
 
 function App() {
@@ -209,6 +248,7 @@ function App() {
 
   return (
     <main className="site-shell min-h-screen text-neutral-950">
+      <FluidBackground />
       <header className="sticky top-0 z-30 border-b border-neutral-950/10 bg-[#f8f4ec]/90 backdrop-blur">
         <nav
           aria-label="Main navigation"
