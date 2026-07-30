@@ -149,6 +149,7 @@ function App() {
 
       const target = document.querySelector(window.location.hash)
 
+      target?.scrollIntoView({ block: 'start' })
       target
         ?.querySelectorAll<HTMLElement>('.scroll-reveal')
         .forEach((element) => showElement(element))
