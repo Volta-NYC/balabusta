@@ -31,11 +31,11 @@ textarea {
   position: relative;
   isolation: isolate;
   background:
-    linear-gradient(rgba(248, 244, 236, 0.9), rgba(248, 244, 236, 0.9)),
+    linear-gradient(rgba(248, 244, 236, 0.78), rgba(248, 244, 236, 0.8)),
     url("/islamic-pattern.svg");
   background-attachment: fixed;
   background-color: #f8f4ec;
-  background-size: auto, 160px 160px;
+  background-size: auto, 144px 144px;
 }
 
 .hero-section {
@@ -49,12 +49,12 @@ textarea {
 .islamic-geometry {
   position: absolute;
   background-image: url("/islamic-pattern.svg");
-  background-size: 160px 160px;
+  background-size: 144px 144px;
 }
 
 .values-geometry {
   inset: 0;
-  opacity: 0.18;
+  opacity: 0.26;
 }
 
 .geometric-frame::before {
