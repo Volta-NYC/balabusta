@@ -56,28 +56,24 @@ const values = [
 ]
 
 const serviceAreas = [
-  'Brooklyn',
-  'Manhattan',
-  'Queens',
-  'Bronx',
-  'Staten Island',
-  'Monsey',
-  'Spring Valley',
-  'Monroe',
-  'New Square',
-  'Catskills',
-  'Teaneck',
-  'Englewood',
-  'Lakewood',
-  'Jersey City',
-  'Long Island',
-  'Five Towns',
-  'Deal',
-  'Connecticut',
-  'The Tristate Area',
-  'NYC',
-  'NJ',
-  'CT',
+  { name: 'Brooklyn', featured: true },
+  { name: 'Manhattan', featured: true },
+  { name: 'Queens', featured: true },
+  { name: 'Bronx' },
+  { name: 'Staten Island' },
+  { name: 'Long Island', featured: true },
+  { name: 'Five Towns' },
+  { name: 'Jersey City', featured: true },
+  { name: 'Lakewood', featured: true },
+  { name: 'Teaneck' },
+  { name: 'Englewood' },
+  { name: 'Deal' },
+  { name: 'Monsey' },
+  { name: 'Spring Valley' },
+  { name: 'Monroe' },
+  { name: 'New Square' },
+  { name: 'Catskills' },
+  { name: 'Connecticut', featured: true },
 ]
 
 const socialLinks = [
@@ -388,7 +384,7 @@ function App() {
                 Now everywhere
               </p>
               <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-4xl">
-                Serving NYC, NJ, CT, and beyond.
+                Serving key NYC boroughs, NJ, CT, and beyond.
               </h2>
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -396,11 +392,15 @@ function App() {
                 <div
                   className={`scroll-reveal ${
                     revealDirections[index % revealDirections.length]
-                  } border border-neutral-950/10 bg-[#f8f4ec] px-4 py-3 text-sm font-semibold text-neutral-800`}
-                  key={area}
+                  } ${
+                    area.featured
+                      ? 'border-rose-900 bg-rose-900 text-white shadow-lg shadow-rose-950/10'
+                      : 'border-neutral-950/10 bg-[#f8f4ec] text-neutral-800'
+                  } border px-4 py-3 text-sm font-semibold`}
+                  key={area.name}
                   style={revealStyle(index, 35)}
                 >
-                  {area}
+                  {area.name}
                 </div>
               ))}
             </div>
