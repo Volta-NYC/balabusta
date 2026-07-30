@@ -94,9 +94,71 @@ textarea {
   background-size: 48px 48px;
 }
 
+.scroll-reveal {
+  --reveal-x: 0;
+  --reveal-y: 0;
+  --reveal-rotate: 0deg;
+  --reveal-scale: 1;
+  opacity: 0;
+  filter: blur(10px);
+  transform: translate3d(var(--reveal-x), var(--reveal-y), 0)
+    rotate(var(--reveal-rotate)) scale(var(--reveal-scale));
+  transition:
+    opacity 700ms ease,
+    filter 800ms ease,
+    transform 850ms cubic-bezier(0.18, 0.86, 0.28, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, filter, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+}
+
+.reveal-left {
+  --reveal-x: -56px;
+  --reveal-rotate: -1.5deg;
+}
+
+.reveal-right {
+  --reveal-x: 56px;
+  --reveal-rotate: 1.5deg;
+}
+
+.reveal-up {
+  --reveal-y: 48px;
+  --reveal-scale: 0.98;
+}
+
+.reveal-down {
+  --reveal-y: -42px;
+  --reveal-scale: 0.98;
+}
+
+.reveal-card {
+  transform-origin: center;
+}
+
+.reveal-card.is-visible:hover {
+  transform: translate3d(0, -4px, 0) rotate(0deg) scale(1);
+}
+
 @media (max-width: 768px) {
   .site-shell {
     background-attachment: scroll;
     background-size: auto, 120px 120px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal.is-visible,
+  .reveal-card.is-visible:hover {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
   }
 }

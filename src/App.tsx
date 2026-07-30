@@ -10,7 +10,8 @@ import {
   ShieldCheck,
   Sparkles,
 } from 'lucide-react'
-import type { FormEvent } from 'react'
+import { useEffect } from 'react'
+import type { CSSProperties, FormEvent } from 'react'
 
 const phoneDisplay = '347.350.9660'
 const phoneHref = 'tel:13473509660'
@@ -104,7 +105,89 @@ const estimateFields = {
   frequencies: ['One-time', 'Weekly', 'Biweekly', 'Monthly', 'Not sure yet'],
 }
 
+const revealDirections = [
+  'reveal-left',
+  'reveal-up',
+  'reveal-down',
+  'reveal-right',
+]
+
+function revealStyle(index: number, step = 90): CSSProperties {
+  return { '--reveal-delay': `${index * step}ms` } as CSSProperties
+}
+
 function App() {
+  useEffect(() => {
+    const revealElements = Array.from(
+      document.querySelectorAll<HTMLElement>('.scroll-reveal'),
+    )
+
+    function showElement(element: HTMLElement) {
+      element.classList.add('is-visible')
+      observer.unobserve(element)
+    }
+
+    function revealVisibleElements() {
+      revealElements.forEach((element) => {
+        if (element.classList.contains('is-visible')) {
+          return
+        }
+
+        const rect = element.getBoundingClientRect()
+        const isVisible = rect.top < window.innerHeight * 0.9 && rect.bottom > 0
+
+        if (isVisible) {
+          showElement(element)
+        }
+      })
+    }
+
+    function revealHashTarget() {
+      if (!window.location.hash) {
+        return
+      }
+
+      const target = document.querySelector(window.location.hash)
+
+      target
+        ?.querySelectorAll<HTMLElement>('.scroll-reveal')
+        .forEach((element) => showElement(element))
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return
+          }
+
+          showElement(entry.target as HTMLElement)
+        })
+      },
+      {
+        rootMargin: '0px 0px -12% 0px',
+        threshold: 0.12,
+      },
+    )
+
+    revealElements.forEach((element) => observer.observe(element))
+
+    window.addEventListener('scroll', revealVisibleElements, { passive: true })
+    window.addEventListener('resize', revealVisibleElements)
+    window.addEventListener('hashchange', revealHashTarget)
+
+    window.setTimeout(revealVisibleElements, 80)
+    window.setTimeout(revealHashTarget, 120)
+    window.setTimeout(revealVisibleElements, 500)
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', revealVisibleElements)
+      window.removeEventListener('resize', revealVisibleElements)
+      window.removeEventListener('hashchange', revealHashTarget)
+    }
+  }, [])
+
   function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
@@ -177,7 +260,7 @@ function App() {
       <section id="home" className="hero-section relative overflow-hidden">
         <div aria-hidden="true" className="hero-star-pattern" />
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 lg:grid-cols-2 lg:items-center lg:py-16">
-          <div className="relative z-10 max-w-3xl">
+          <div className="scroll-reveal reveal-left relative z-10 max-w-3xl">
             <h1 className="max-w-3xl font-serif text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
               Reliable cleaning for homes and businesses.
             </h1>
@@ -205,7 +288,7 @@ function App() {
             </div>
           </div>
 
-          <div className="geometric-frame relative z-10 min-h-[360px] overflow-hidden rounded-lg bg-neutral-950 shadow-2xl shadow-neutral-950/20 sm:min-h-[440px]">
+          <div className="geometric-frame scroll-reveal reveal-right relative z-10 min-h-[360px] overflow-hidden rounded-lg bg-neutral-950 shadow-2xl shadow-neutral-950/20 sm:min-h-[440px]">
             <img
               alt="Professional housekeeper folding towels in a home"
               className="absolute inset-0 h-full w-full object-cover"
@@ -236,7 +319,7 @@ function App() {
 
       <section id="services" className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-          <div>
+          <div className="scroll-reveal reveal-left">
             <p className="text-sm font-bold uppercase text-rose-800">
               Residential and commercial services
             </p>
@@ -244,7 +327,7 @@ function App() {
               Cleaning services that feel considered, not cookie-cutter.
             </h2>
           </div>
-          <p className="max-w-2xl text-lg leading-8 text-neutral-700">
+          <p className="scroll-reveal reveal-right max-w-2xl text-lg leading-8 text-neutral-700">
             From apartments and family homes to offices and storefronts, we make
             it easy to get dependable cleaning help matched to the way your
             space is actually used.
@@ -252,10 +335,13 @@ function App() {
         </div>
 
         <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {services.map(({ title, description }) => (
+          {services.map(({ title, description }, index) => (
             <article
-              className="border border-neutral-950/10 bg-white/90 p-6 shadow-sm transition hover:-translate-y-1 hover:border-rose-900/30"
+              className={`scroll-reveal reveal-card ${
+                revealDirections[index % revealDirections.length]
+              } border border-neutral-950/10 bg-white/90 p-6 shadow-sm transition hover:-translate-y-1 hover:border-rose-900/30`}
               key={title}
+              style={revealStyle(index)}
             >
               <h3 className="font-serif text-2xl font-semibold">{title}</h3>
               <p className="mt-4 leading-7 text-neutral-700">{description}</p>
@@ -267,7 +353,7 @@ function App() {
       <section id="values" className="relative overflow-hidden bg-neutral-950 px-5 py-20 text-white sm:px-8">
         <div aria-hidden="true" className="islamic-geometry values-geometry" />
         <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
+          <div className="scroll-reveal reveal-up max-w-3xl">
             <p className="text-sm font-bold uppercase text-rose-200">
               What we stand for
             </p>
@@ -276,8 +362,14 @@ function App() {
             </h2>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {values.map(({ title, description, icon: Icon }) => (
-              <article className="border border-white/15 p-6" key={title}>
+            {values.map(({ title, description, icon: Icon }, index) => (
+              <article
+                className={`scroll-reveal reveal-card ${
+                  index % 2 === 0 ? 'reveal-left' : 'reveal-right'
+                } border border-white/15 p-6`}
+                key={title}
+                style={revealStyle(index)}
+              >
                 <Icon aria-hidden="true" className="text-rose-200" size={28} />
                 <h3 className="mt-8 font-serif text-2xl font-semibold">
                   {title}
@@ -292,7 +384,7 @@ function App() {
       <section id="areas" className="relative overflow-hidden bg-white/90 py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
-            <div>
+            <div className="scroll-reveal reveal-left">
               <p className="text-sm font-bold uppercase text-rose-800">
                 Now everywhere
               </p>
@@ -301,10 +393,13 @@ function App() {
               </h2>
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-              {serviceAreas.map((area) => (
+              {serviceAreas.map((area, index) => (
                 <div
-                  className="border border-neutral-950/10 bg-[#f8f4ec] px-4 py-3 text-sm font-semibold text-neutral-800"
+                  className={`scroll-reveal ${
+                    revealDirections[index % revealDirections.length]
+                  } border border-neutral-950/10 bg-[#f8f4ec] px-4 py-3 text-sm font-semibold text-neutral-800`}
                   key={area}
+                  style={revealStyle(index, 35)}
                 >
                   {area}
                 </div>
@@ -315,13 +410,16 @@ function App() {
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-5 px-5 py-20 sm:px-8 lg:grid-cols-3">
-        <article className="bg-rose-900 p-8 text-white">
+        <article className="scroll-reveal reveal-left bg-rose-900 p-8 text-white">
           <ShieldCheck aria-hidden="true" size={30} />
           <h2 className="mt-8 font-serif text-2xl font-semibold">
             Licensed and insured by the State of NY.
           </h2>
         </article>
-        <article className="border border-neutral-950/10 bg-white p-8">
+        <article
+          className="scroll-reveal reveal-up border border-neutral-950/10 bg-white p-8"
+          style={revealStyle(1)}
+        >
           <Languages aria-hidden="true" className="text-rose-800" size={30} />
           <h2 className="mt-8 font-serif text-2xl font-semibold">
             Yes, we speak Spanish.
@@ -330,7 +428,10 @@ function App() {
             Tambien hablamos Espanol.
           </p>
         </article>
-        <article className="border border-neutral-950/10 bg-white p-8">
+        <article
+          className="scroll-reveal reveal-right border border-neutral-950/10 bg-white p-8"
+          style={revealStyle(2)}
+        >
           <BadgeCheck aria-hidden="true" className="text-rose-800" size={30} />
           <h2 className="mt-8 font-serif text-2xl font-semibold">
             Available to help you anytime.
@@ -343,7 +444,7 @@ function App() {
 
       <section id="contact" className="bg-neutral-950 px-5 py-20 text-white sm:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
+          <div className="scroll-reveal reveal-left">
             <p className="text-sm font-bold uppercase text-rose-200">
               Request an estimate
             </p>
@@ -388,7 +489,7 @@ function App() {
             </div>
           </div>
 
-          <div className="bg-[#f8f4ec] p-5 text-neutral-950 shadow-2xl shadow-black/30 sm:p-8">
+          <div className="scroll-reveal reveal-right bg-[#f8f4ec] p-5 text-neutral-950 shadow-2xl shadow-black/30 sm:p-8">
             <div className="mb-6">
               <p className="text-sm font-bold uppercase text-rose-800">
                 Estimate details
