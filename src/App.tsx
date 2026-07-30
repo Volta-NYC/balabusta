@@ -136,8 +136,26 @@ function App() {
           aria-label="Main navigation"
           className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8"
         >
-          <a href="#home" className="font-serif text-xl font-semibold">
-            Balabusta Inc.
+          <a
+            href="#home"
+            className="flex items-center gap-3 text-neutral-950"
+            aria-label="Balabusta Inc. home"
+          >
+            <img
+              alt=""
+              className="h-10 w-10 rounded-md"
+              height="40"
+              src="/logo.svg"
+              width="40"
+            />
+            <span className="flex flex-col leading-none">
+              <span className="font-serif text-xl font-semibold">
+                Balabusta Inc.
+              </span>
+              <span className="mt-1 hidden text-xs font-semibold uppercase text-neutral-500 sm:block">
+                Professional Cleaning
+              </span>
+            </span>
           </a>
           <div className="hidden items-center gap-7 text-sm font-medium text-neutral-700 md:flex">
             <a className="transition hover:text-neutral-950" href="#services">
