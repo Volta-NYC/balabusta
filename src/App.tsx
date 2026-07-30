@@ -13,7 +13,7 @@ import {
 import { useEffect } from 'react'
 import type { CSSProperties, FormEvent } from 'react'
 
-const phoneDisplay = '347.350.9660'
+const phoneDisplay = '347-350-9660'
 const phoneHref = 'tel:13473509660'
 const smsHref = 'sms:13473509660'
 const whatsappHref = 'https://wa.me/13473509660'
