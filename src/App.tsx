@@ -2,8 +2,6 @@ import {
   BadgeCheck,
   Building2,
   Camera,
-  HeartHandshake,
-  Home,
   Languages,
   MapPin,
   MessageCircle,
@@ -23,22 +21,18 @@ const services = [
   {
     title: 'Residential Cleaning',
     description: 'Reliable cleaning for apartments, houses, moves, and recurring home care.',
-    icon: Home,
   },
   {
     title: 'Commercial Cleaning',
     description: 'Professional upkeep for offices, storefronts, buildings, and shared spaces.',
-    icon: Building2,
   },
   {
     title: 'Housekeepers & Maids',
     description: 'Dependable household help for everyday maintenance and detailed resets.',
-    icon: Sparkles,
   },
   {
     title: 'Household Support',
     description: 'Cleaning ladies, housekeepers, maids, and nanny support for busy homes.',
-    icon: HeartHandshake,
   },
 ]
 
@@ -130,7 +124,7 @@ function App() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f8f4ec] text-neutral-950">
+    <main className="site-shell min-h-screen text-neutral-950">
       <header className="sticky top-0 z-30 border-b border-neutral-950/10 bg-[#f8f4ec]/90 backdrop-blur">
         <nav
           aria-label="Main navigation"
@@ -172,28 +166,22 @@ function App() {
             </a>
           </div>
           <a
-            className="inline-flex items-center gap-2 rounded-full bg-neutral-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-rose-900"
-            href={phoneHref}
+            className="inline-flex items-center rounded-full bg-neutral-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-rose-900"
+            href="#contact"
           >
-            <Phone aria-hidden="true" size={16} />
-            {phoneDisplay}
+            Contact us
           </a>
         </nav>
       </header>
 
-      <section id="home" className="relative overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-40 bg-white/45" />
-        <div aria-hidden="true" className="islamic-geometry hero-geometry" />
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-8 lg:grid-cols-2 lg:items-center lg:py-14">
-          <div className="relative z-10">
-            <div className="mb-6 inline-flex items-center gap-3 border border-neutral-950/15 bg-white/70 px-4 py-2 text-sm font-semibold text-neutral-700 shadow-sm">
-              <span className="h-2 w-2 rounded-full bg-rose-700" />
-              Professional cleaning for homes and businesses
-            </div>
+      <section id="home" className="hero-section relative overflow-hidden text-white">
+        <div aria-hidden="true" className="hero-star-pattern" />
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+          <div className="relative z-10 max-w-3xl">
             <h1 className="max-w-3xl font-serif text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
               Reliable cleaning for homes and businesses.
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-700 sm:text-lg">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-white/80 sm:text-lg">
               Balabusta Inc. serves residential and commercial clients with
               professional cleaning, housekeepers, maids, cleaning ladies, and
               household support across New York, New Jersey, Connecticut, and
@@ -208,27 +196,12 @@ function App() {
                 Request an estimate
               </a>
               <a
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-neutral-950/15 bg-white px-6 py-4 text-base font-semibold text-neutral-950 shadow-sm transition hover:border-neutral-950"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-4 text-base font-semibold text-white shadow-sm backdrop-blur transition hover:bg-white hover:text-neutral-950"
                 href={phoneHref}
               >
                 <Phone aria-hidden="true" size={19} />
                 Call {phoneDisplay}
               </a>
-            </div>
-          </div>
-
-          <div className="geometric-frame relative min-h-[360px] overflow-hidden rounded-lg bg-neutral-950 shadow-2xl shadow-neutral-950/20 sm:min-h-[440px]">
-            <img
-              alt="Professional housekeeper folding towels in a home"
-              className="absolute inset-0 h-full w-full object-cover"
-              src="/balabusta-home.jpg"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/15 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white sm:p-8">
-              <p className="text-sm font-semibold uppercase">Here to help</p>
-              <p className="mt-3 max-w-md text-2xl font-semibold leading-tight sm:text-3xl">
-                Modern cleaning support, built around your schedule.
-              </p>
             </div>
           </div>
         </div>
@@ -264,14 +237,11 @@ function App() {
         </div>
 
         <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {services.map(({ title, description, icon: Icon }) => (
+          {services.map(({ title, description }) => (
             <article
-              className="group border border-neutral-950/10 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-rose-900/30"
+              className="border border-neutral-950/10 bg-white/90 p-6 shadow-sm transition hover:-translate-y-1 hover:border-rose-900/30"
               key={title}
             >
-              <div className="mb-8 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#f8f4ec] text-rose-800 ring-1 ring-rose-900/10 transition group-hover:bg-rose-900 group-hover:text-white">
-                <Icon aria-hidden="true" size={23} />
-              </div>
               <h3 className="font-serif text-2xl font-semibold">{title}</h3>
               <p className="mt-4 leading-7 text-neutral-700">{description}</p>
             </article>
@@ -304,8 +274,7 @@ function App() {
         </div>
       </section>
 
-      <section id="areas" className="relative overflow-hidden bg-white py-20">
-        <div aria-hidden="true" className="area-geometry" />
+      <section id="areas" className="relative overflow-hidden bg-white/90 py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
