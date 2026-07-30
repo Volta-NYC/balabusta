@@ -165,22 +165,22 @@ function App() {
 
       <section id="home" className="relative overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-40 bg-white/45" />
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-16">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-8 lg:grid-cols-2 lg:items-center lg:py-14">
           <div className="relative z-10">
-            <div className="mb-8 inline-flex items-center gap-3 border border-neutral-950/15 bg-white/70 px-4 py-2 text-sm font-semibold text-neutral-700 shadow-sm">
+            <div className="mb-6 inline-flex items-center gap-3 border border-neutral-950/15 bg-white/70 px-4 py-2 text-sm font-semibold text-neutral-700 shadow-sm">
               <span className="h-2 w-2 rounded-full bg-rose-700" />
               Professional cleaning for homes and businesses
             </div>
-            <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-none sm:text-7xl lg:text-8xl">
-              Reliable cleaning that lets every space feel handled.
+            <h1 className="max-w-3xl font-serif text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
+              Reliable cleaning for homes and businesses.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-neutral-700 sm:text-xl">
+            <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-700 sm:text-lg">
               Balabusta Inc. serves residential and commercial clients with
               professional cleaning, housekeepers, maids, cleaning ladies, and
               household support across New York, New Jersey, Connecticut, and
               the Tristate Area.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-rose-800 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-rose-950/15 transition hover:bg-neutral-950"
                 href="#contact"
@@ -198,7 +198,7 @@ function App() {
             </div>
           </div>
 
-          <div className="relative min-h-[390px] overflow-hidden rounded-lg bg-neutral-950 shadow-2xl shadow-neutral-950/20 sm:min-h-[480px]">
+          <div className="relative min-h-[360px] overflow-hidden rounded-lg bg-neutral-950 shadow-2xl shadow-neutral-950/20 sm:min-h-[440px]">
             <img
               alt="Professional housekeeper folding towels in a home"
               className="absolute inset-0 h-full w-full object-cover"
@@ -207,7 +207,7 @@ function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/15 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white sm:p-8">
               <p className="text-sm font-semibold uppercase">Here to help</p>
-              <p className="mt-3 max-w-md text-3xl font-semibold leading-tight">
+              <p className="mt-3 max-w-md text-2xl font-semibold leading-tight sm:text-3xl">
                 Modern cleaning support, built around your schedule.
               </p>
             </div>
