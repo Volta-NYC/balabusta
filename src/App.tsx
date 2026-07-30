@@ -165,6 +165,7 @@ function App() {
 
       <section id="home" className="relative overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-40 bg-white/45" />
+        <div aria-hidden="true" className="islamic-geometry hero-geometry" />
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-8 lg:grid-cols-2 lg:items-center lg:py-14">
           <div className="relative z-10">
             <div className="mb-6 inline-flex items-center gap-3 border border-neutral-950/15 bg-white/70 px-4 py-2 text-sm font-semibold text-neutral-700 shadow-sm">
@@ -198,7 +199,7 @@ function App() {
             </div>
           </div>
 
-          <div className="relative min-h-[360px] overflow-hidden rounded-lg bg-neutral-950 shadow-2xl shadow-neutral-950/20 sm:min-h-[440px]">
+          <div className="geometric-frame relative min-h-[360px] overflow-hidden rounded-lg bg-neutral-950 shadow-2xl shadow-neutral-950/20 sm:min-h-[440px]">
             <img
               alt="Professional housekeeper folding towels in a home"
               className="absolute inset-0 h-full w-full object-cover"
@@ -215,7 +216,7 @@ function App() {
         </div>
       </section>
 
-      <section className="border-y border-neutral-950 bg-neutral-950 py-4 text-white">
+      <section className="geometric-band border-y border-neutral-950 bg-neutral-950 py-4 text-white">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-5 text-center text-sm font-semibold sm:px-8">
           <span>Housekeepers</span>
           <span>Commercial Cleaning</span>
@@ -233,7 +234,7 @@ function App() {
             <p className="text-sm font-bold uppercase text-rose-800">
               Residential and commercial services
             </p>
-            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight sm:text-5xl">
+            <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-4xl">
               Cleaning services that feel considered, not cookie-cutter.
             </h2>
           </div>
@@ -247,10 +248,10 @@ function App() {
         <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {services.map(({ title, description, icon: Icon }) => (
             <article
-              className="border border-neutral-950/10 bg-white p-6 shadow-sm"
+              className="group border border-neutral-950/10 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-rose-900/30"
               key={title}
             >
-              <div className="mb-8 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#f8f4ec] text-rose-800">
+              <div className="mb-8 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#f8f4ec] text-rose-800 ring-1 ring-rose-900/10 transition group-hover:bg-rose-900 group-hover:text-white">
                 <Icon aria-hidden="true" size={23} />
               </div>
               <h3 className="font-serif text-2xl font-semibold">{title}</h3>
@@ -260,13 +261,14 @@ function App() {
         </div>
       </section>
 
-      <section id="values" className="bg-neutral-950 px-5 py-20 text-white sm:px-8">
+      <section id="values" className="relative overflow-hidden bg-neutral-950 px-5 py-20 text-white sm:px-8">
+        <div aria-hidden="true" className="islamic-geometry values-geometry" />
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
             <p className="text-sm font-bold uppercase text-rose-200">
               What we stand for
             </p>
-            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight sm:text-5xl">
+            <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-4xl">
               Reliable, professional, quality cleaning.
             </h2>
           </div>
@@ -284,14 +286,15 @@ function App() {
         </div>
       </section>
 
-      <section id="areas" className="bg-white py-20">
+      <section id="areas" className="relative overflow-hidden bg-white py-20">
+        <div aria-hidden="true" className="area-geometry" />
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
               <p className="text-sm font-bold uppercase text-rose-800">
                 Now everywhere
               </p>
-              <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight sm:text-5xl">
+              <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-4xl">
                 Serving NYC, NJ, CT, and beyond.
               </h2>
             </div>
@@ -312,13 +315,13 @@ function App() {
       <section className="mx-auto grid max-w-7xl gap-5 px-5 py-20 sm:px-8 lg:grid-cols-3">
         <article className="bg-rose-900 p-8 text-white">
           <ShieldCheck aria-hidden="true" size={30} />
-          <h2 className="mt-8 font-serif text-3xl font-semibold">
+          <h2 className="mt-8 font-serif text-2xl font-semibold">
             Licensed and insured by the State of NY.
           </h2>
         </article>
         <article className="border border-neutral-950/10 bg-white p-8">
           <Languages aria-hidden="true" className="text-rose-800" size={30} />
-          <h2 className="mt-8 font-serif text-3xl font-semibold">
+          <h2 className="mt-8 font-serif text-2xl font-semibold">
             Yes, we speak Spanish.
           </h2>
           <p className="mt-3 text-neutral-700">
@@ -327,7 +330,7 @@ function App() {
         </article>
         <article className="border border-neutral-950/10 bg-white p-8">
           <BadgeCheck aria-hidden="true" className="text-rose-800" size={30} />
-          <h2 className="mt-8 font-serif text-3xl font-semibold">
+          <h2 className="mt-8 font-serif text-2xl font-semibold">
             Available to help you anytime.
           </h2>
           <p className="mt-3 text-neutral-700">
@@ -342,7 +345,7 @@ function App() {
             <p className="text-sm font-bold uppercase text-rose-200">
               Request an estimate
             </p>
-            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight sm:text-6xl">
+            <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-5xl">
               Tell us what needs cleaning.
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-8 text-white/75">
@@ -388,7 +391,7 @@ function App() {
               <p className="text-sm font-bold uppercase text-rose-800">
                 Estimate details
               </p>
-              <h3 className="mt-2 font-serif text-3xl font-semibold">
+              <h3 className="mt-2 font-serif text-2xl font-semibold">
                 Request cleaning service
               </h3>
             </div>
