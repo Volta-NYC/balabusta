@@ -11,7 +11,6 @@ import {
   Send,
   ShieldCheck,
   Sparkles,
-  UsersRound,
 } from 'lucide-react'
 import type { FormEvent } from 'react'
 
@@ -22,24 +21,42 @@ const whatsappHref = 'https://wa.me/13473509660'
 
 const services = [
   {
-    title: 'Housekeepers',
-    description: 'Dependable household help for the rhythm of a busy home.',
+    title: 'Residential Cleaning',
+    description: 'Reliable cleaning for apartments, houses, moves, and recurring home care.',
     icon: Home,
   },
   {
-    title: 'Nannies',
-    description: 'Trusted support for families who need attentive care.',
-    icon: UsersRound,
+    title: 'Commercial Cleaning',
+    description: 'Professional upkeep for offices, storefronts, buildings, and shared spaces.',
+    icon: Building2,
   },
   {
-    title: 'Cleaning Ladies',
-    description: 'Detailed cleaning support that keeps rooms reset and ready.',
+    title: 'Housekeepers & Maids',
+    description: 'Dependable household help for everyday maintenance and detailed resets.',
     icon: Sparkles,
   },
   {
-    title: 'Maids',
-    description: 'Professional help for everyday upkeep and deeper needs.',
+    title: 'Household Support',
+    description: 'Cleaning ladies, housekeepers, maids, and nanny support for busy homes.',
     icon: HeartHandshake,
+  },
+]
+
+const values = [
+  {
+    title: 'Reliability',
+    description: 'Responsive scheduling and dependable support when your space needs attention.',
+    icon: BadgeCheck,
+  },
+  {
+    title: 'Professionalism',
+    description: 'Clear communication, respectful service, and a polished client experience.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Quality',
+    description: 'Detail-minded cleaning standards for homes, offices, and commercial spaces.',
+    icon: Sparkles,
   },
 ]
 
@@ -96,17 +113,20 @@ function App() {
           className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8"
         >
           <a href="#home" className="font-serif text-xl font-semibold">
-            Balabusta Brooklyn
+            Balabusta Inc.
           </a>
           <div className="hidden items-center gap-7 text-sm font-medium text-neutral-700 md:flex">
             <a className="transition hover:text-neutral-950" href="#services">
               Services
             </a>
+            <a className="transition hover:text-neutral-950" href="#values">
+              Values
+            </a>
             <a className="transition hover:text-neutral-950" href="#areas">
               Areas
             </a>
             <a className="transition hover:text-neutral-950" href="#contact">
-              Contact
+              Estimate
             </a>
           </div>
           <a
@@ -125,31 +145,31 @@ function App() {
           <div className="relative z-10">
             <div className="mb-8 inline-flex items-center gap-3 border border-neutral-950/15 bg-white/70 px-4 py-2 text-sm font-semibold text-neutral-700 shadow-sm">
               <span className="h-2 w-2 rounded-full bg-rose-700" />
-              The best maids in NYC housekeepers
+              Professional cleaning for homes and businesses
             </div>
             <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-none sm:text-7xl lg:text-8xl">
-              Housekeepers, nannies, cleaning ladies, and maids.
+              Reliable cleaning that lets every space feel handled.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-neutral-700 sm:text-xl">
-              Balabusta Brooklyn connects homes across New York, New Jersey,
-              Connecticut, and the Tristate Area with dependable household help.
+              Balabusta Inc. serves residential and commercial clients with
+              professional cleaning, housekeepers, maids, cleaning ladies, and
+              household support across New York, New Jersey, Connecticut, and
+              the Tristate Area.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-rose-800 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-rose-950/15 transition hover:bg-neutral-950"
+                href="#contact"
+              >
+                <Send aria-hidden="true" size={19} />
+                Request an estimate
+              </a>
+              <a
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-neutral-950/15 bg-white px-6 py-4 text-base font-semibold text-neutral-950 shadow-sm transition hover:border-neutral-950"
                 href={phoneHref}
               >
                 <Phone aria-hidden="true" size={19} />
                 Call {phoneDisplay}
-              </a>
-              <a
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-neutral-950/15 bg-white px-6 py-4 text-base font-semibold text-neutral-950 shadow-sm transition hover:border-neutral-950"
-                href={whatsappHref}
-                rel="noreferrer"
-                target="_blank"
-              >
-                <MessageCircle aria-hidden="true" size={19} />
-                Message us on WhatsApp
               </a>
             </div>
           </div>
@@ -164,7 +184,7 @@ function App() {
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white sm:p-8">
               <p className="text-sm font-semibold uppercase">Here to help</p>
               <p className="mt-3 max-w-md text-3xl font-semibold leading-tight">
-                We have the best maids now everywhere.
+                Modern cleaning support, built around your schedule.
               </p>
             </div>
           </div>
@@ -174,7 +194,8 @@ function App() {
       <section className="border-y border-neutral-950 bg-neutral-950 py-4 text-white">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-5 text-center text-sm font-semibold sm:px-8">
           <span>Housekeepers</span>
-          <span>Nannies</span>
+          <span>Commercial Cleaning</span>
+          <span>Residential Cleaning</span>
           <span>Cleaning Ladies</span>
           <span>Maids</span>
           <span>Call or text {phoneDisplay}</span>
@@ -185,16 +206,16 @@ function App() {
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
             <p className="text-sm font-bold uppercase text-rose-800">
-              We make your life better
+              Residential and commercial services
             </p>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight sm:text-5xl">
-              Practical help, handled with care.
+              Cleaning services that feel considered, not cookie-cutter.
             </h2>
           </div>
           <p className="max-w-2xl text-lg leading-8 text-neutral-700">
-            Whether you need regular household support, childcare help, or a
-            cleaning reset, the call starts the same way: tell us what your home
-            needs and we will help you find the right fit.
+            From apartments and family homes to offices and storefronts, we make
+            it easy to get dependable cleaning help matched to the way your
+            space is actually used.
           </p>
         </div>
 
@@ -211,6 +232,30 @@ function App() {
               <p className="mt-4 leading-7 text-neutral-700">{description}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section id="values" className="bg-neutral-950 px-5 py-20 text-white sm:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold uppercase text-rose-200">
+              What we stand for
+            </p>
+            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight sm:text-5xl">
+              Reliable, professional, quality cleaning.
+            </h2>
+          </div>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {values.map(({ title, description, icon: Icon }) => (
+              <article className="border border-white/15 p-6" key={title}>
+                <Icon aria-hidden="true" className="text-rose-200" size={28} />
+                <h3 className="mt-8 font-serif text-2xl font-semibold">
+                  {title}
+                </h3>
+                <p className="mt-4 leading-7 text-white/75">{description}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -261,7 +306,7 @@ function App() {
             Available to help you anytime.
           </h2>
           <p className="mt-3 text-neutral-700">
-            Call, text, or use WhatsApp at {phoneDisplay}.
+            Request an estimate, call, text, or use WhatsApp at {phoneDisplay}.
           </p>
         </article>
       </section>
@@ -270,11 +315,16 @@ function App() {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="text-sm font-bold uppercase text-rose-200">
-              You can send us a message
+              Request an estimate
             </p>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight sm:text-6xl">
-              We miss you :-)
+              Tell us what needs cleaning.
             </h2>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-white/75">
+              For residential or commercial cleaning, share a few details and we
+              will follow up. You can also call, text, or message us on
+              WhatsApp anytime.
+            </p>
             <div className="mt-9 space-y-5 text-lg">
               <a className="flex items-center gap-3" href={phoneHref}>
                 <Phone aria-hidden="true" className="text-rose-200" size={22} />
@@ -348,7 +398,7 @@ function App() {
 
       <footer className="bg-[#f8f4ec] px-5 py-8 sm:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 text-sm text-neutral-700 md:flex-row md:items-center md:justify-between">
-          <p>Copyright © 2020 BALABUSTA BROOKLYN - All Rights Reserved.</p>
+          <p>Copyright © 2020 BALABUSTA INC. - All Rights Reserved.</p>
           <div className="flex flex-wrap items-center gap-4">
             <span className="inline-flex items-center gap-2 font-semibold text-neutral-950">
               <Building2 aria-hidden="true" size={16} />
