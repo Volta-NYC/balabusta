@@ -46,14 +46,6 @@ textarea {
   background-size: cover;
 }
 
-.hero-star-pattern {
-  position: absolute;
-  inset: 0;
-  background-image: url("/islamic-pattern.svg");
-  background-size: 160px 160px;
-  opacity: 0.36;
-}
-
 .islamic-geometry {
   position: absolute;
   background-image: url("/islamic-pattern.svg");

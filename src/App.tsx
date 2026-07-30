@@ -258,9 +258,8 @@ function App() {
       </header>
 
       <section id="home" className="hero-section relative overflow-hidden">
-        <div aria-hidden="true" className="hero-star-pattern" />
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 lg:grid-cols-2 lg:items-center lg:py-16">
-          <div className="scroll-reveal reveal-left relative z-10 max-w-3xl">
+          <div className="relative z-10 max-w-3xl">
             <h1 className="max-w-3xl font-serif text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
               Reliable cleaning for homes and businesses.
             </h1>
@@ -288,7 +287,7 @@ function App() {
             </div>
           </div>
 
-          <div className="geometric-frame scroll-reveal reveal-right relative z-10 min-h-[360px] overflow-hidden rounded-lg bg-neutral-950 shadow-2xl shadow-neutral-950/20 sm:min-h-[440px]">
+          <div className="geometric-frame relative z-10 min-h-[360px] overflow-hidden rounded-lg bg-neutral-950 shadow-2xl shadow-neutral-950/20 sm:min-h-[440px]">
             <img
               alt="Professional housekeeper folding towels in a home"
               className="absolute inset-0 h-full w-full object-cover"
