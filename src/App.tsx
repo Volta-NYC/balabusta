@@ -1,6 +1,5 @@
 import {
   BadgeCheck,
-  Building2,
   Camera,
   Languages,
   MapPin,
@@ -623,29 +622,124 @@ function App() {
         </div>
       </section>
 
-      <footer className="bg-[#f8f4ec] px-5 py-8 sm:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 text-sm text-neutral-700 md:flex-row md:items-center md:justify-between">
-          <p>Copyright © 2020 BALABUSTA INC. - All Rights Reserved.</p>
-          <div className="flex flex-wrap items-center gap-4">
-            <span className="inline-flex items-center gap-2 font-semibold text-neutral-950">
-              <Building2 aria-hidden="true" size={16} />
-              Licensed and insured
-            </span>
-            {socialLinks.map((link) => (
+      <footer className="border-t border-neutral-950/10 bg-neutral-950 px-5 py-14 text-white sm:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
+          <div>
+            <div className="flex items-center gap-3">
+              <img
+                alt=""
+                className="h-12 w-12 rounded-md bg-[#f8f4ec]"
+                height="48"
+                src="/logo.svg"
+                width="48"
+              />
+              <div>
+                <p className="text-2xl font-bold">Balabusta Inc.</p>
+                <p className="mt-1 text-sm font-semibold uppercase text-white/55">
+                  Professional Cleaning
+                </p>
+              </div>
+            </div>
+            <p className="mt-6 max-w-sm leading-7 text-white/70">
+              Reliable residential and commercial cleaning support across key
+              NYC boroughs, New Jersey, Connecticut, and surrounding areas.
+            </p>
+            <p className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-rose-100">
+              <ShieldCheck aria-hidden="true" size={17} />
+              Licensed and insured by the State of NY
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-sm font-bold uppercase text-rose-200">
+              Services
+            </h2>
+            <ul className="mt-5 space-y-3 text-white/70">
+              {services.map((service) => (
+                <li key={service.title}>
+                  <a className="transition hover:text-white" href="#services">
+                    {service.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-sm font-bold uppercase text-rose-200">
+              Primary Areas
+            </h2>
+            <ul className="mt-5 space-y-3 text-white/70">
+              {serviceAreas
+                .filter((area) => area.featured)
+                .map((area) => (
+                  <li key={area.name}>
+                    <a className="transition hover:text-white" href="#areas">
+                      {area.name}
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-sm font-bold uppercase text-rose-200">
+              Contact
+            </h2>
+            <div className="mt-5 space-y-4 text-white/70">
               <a
-                className="inline-flex items-center gap-2 transition hover:text-rose-800"
-                href={link.href}
-                key={link.label}
+                className="flex items-center gap-3 transition hover:text-white"
+                href={phoneHref}
+              >
+                <Phone aria-hidden="true" size={18} />
+                {phoneDisplay}
+              </a>
+              <a
+                className="flex items-center gap-3 transition hover:text-white"
+                href={whatsappHref}
                 rel="noreferrer"
                 target="_blank"
               >
-                {link.label === 'Instagram' ? (
-                  <Camera aria-hidden="true" size={16} />
-                ) : null}
-                {link.label}
+                <MessageCircle aria-hidden="true" size={18} />
+                WhatsApp
               </a>
-            ))}
+              <a
+                className="flex items-start gap-3 transition hover:text-white"
+                href={mapsUrl}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <MapPin aria-hidden="true" className="mt-1" size={18} />
+                <span>
+                  381 Troy Avenue
+                  <br />
+                  Brooklyn, NY 11213
+                </span>
+              </a>
+              <div className="flex flex-wrap gap-4 pt-2">
+                {socialLinks.map((link) => (
+                  <a
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-rose-200"
+                    href={link.href}
+                    key={link.label}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    {link.label === 'Instagram' ? (
+                      <Camera aria-hidden="true" size={16} />
+                    ) : null}
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
+        </div>
+        <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row sm:items-center sm:justify-between">
+          <p>Copyright © 2020 BALABUSTA INC. - All Rights Reserved.</p>
+          <a className="font-semibold transition hover:text-white" href="#contact">
+            Request an estimate
+          </a>
         </div>
       </footer>
     </main>
