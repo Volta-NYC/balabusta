@@ -38,6 +38,14 @@ textarea {
   background-size: auto, 160px 160px;
 }
 
+.hero-section {
+  background:
+    linear-gradient(rgba(248, 244, 236, 0.82), rgba(248, 244, 236, 0.86)),
+    url("/new-york-skyline.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
 .hero-star-pattern {
   position: absolute;
   inset: 0;

@@ -174,7 +174,7 @@ function App() {
         </nav>
       </header>
 
-      <section id="home" className="relative overflow-hidden">
+      <section id="home" className="hero-section relative overflow-hidden">
         <div aria-hidden="true" className="hero-star-pattern" />
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 lg:grid-cols-2 lg:items-center lg:py-16">
           <div className="relative z-10 max-w-3xl">
@@ -207,15 +207,15 @@ function App() {
 
           <div className="geometric-frame relative z-10 min-h-[360px] overflow-hidden rounded-lg bg-neutral-950 shadow-2xl shadow-neutral-950/20 sm:min-h-[440px]">
             <img
-              alt="New York City skyline with the Empire State Building"
+              alt="Professional housekeeper folding towels in a home"
               className="absolute inset-0 h-full w-full object-cover"
-              src="/new-york-skyline.jpg"
+              src="/balabusta-home.jpg"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-neutral-950/10 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white sm:p-8">
-              <p className="text-sm font-semibold uppercase">Serving the tristate area</p>
+              <p className="text-sm font-semibold uppercase">Here to help</p>
               <p className="mt-3 max-w-md text-2xl font-semibold leading-tight sm:text-3xl">
-                Residential and commercial cleaning across NYC, NJ, and CT.
+                Modern cleaning support, built around your schedule.
               </p>
             </div>
           </div>
