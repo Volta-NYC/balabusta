@@ -294,7 +294,7 @@ function App() {
               className="absolute inset-0 h-full w-full object-cover"
               src="/balabusta-home.jpg"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-neutral-950/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/55 via-neutral-950/0 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white sm:p-8">
               <p className="text-sm font-semibold uppercase">Here to help</p>
               <p className="mt-3 max-w-md text-2xl font-semibold leading-tight sm:text-3xl">
