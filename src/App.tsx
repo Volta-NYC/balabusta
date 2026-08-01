@@ -905,7 +905,14 @@ function App() {
         <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-3 border-t border-teal-100/15 pt-6 text-sm text-teal-50/55 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright © 2020 {businessName}. All Rights Reserved.</p>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-5">
-            <p>Made by Novus</p>
+            <a
+              className="transition hover:text-white"
+              href="https://novusnyc.org"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Made by Novus
+            </a>
             <a className="font-semibold transition hover:text-white" href="#contact">
               Request a Cleaning
             </a>
