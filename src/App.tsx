@@ -1,6 +1,5 @@
 import {
   BadgeCheck,
-  Camera,
   Languages,
   MapPin,
   MessageCircle,
@@ -12,10 +11,11 @@ import {
 import { useEffect } from 'react'
 import type { CSSProperties, FormEvent } from 'react'
 
-const phoneDisplay = '347-350-9660'
-const phoneHref = 'tel:13473509660'
-const smsHref = 'sms:13473509660'
-const whatsappHref = 'https://wa.me/13473509660'
+const businessName = 'Balabusta Brooklyn Cleaning Services'
+const phoneDisplay = '732-226-7055'
+const phoneHref = 'tel:+17322267055'
+const smsHref = 'sms:+17322267055'
+const whatsappHref = 'https://wa.me/17322267055'
 const addressDisplay = '381 Troy Avenue, Brooklyn, NY 11213'
 const mapsUrl =
   'https://www.google.com/maps/search/?api=1&query=381%20Troy%20Avenue%2C%20Brooklyn%2C%20NY%2011213'
@@ -24,37 +24,90 @@ const mapsEmbedUrl =
 
 const services = [
   {
-    title: 'Residential Cleaning',
-    description: 'Reliable cleaning for apartments, houses, moves, and recurring home care.',
+    title: 'Recurring Home Cleaning',
+    description: 'Weekly, biweekly, monthly, and one-time cleaning for apartments, condos, and family homes.',
   },
   {
-    title: 'Commercial Cleaning',
-    description: 'Professional upkeep for offices, storefronts, buildings, and shared spaces.',
+    title: 'Deep & Detail Cleaning',
+    description: 'Room-by-room detail work for kitchens, bathrooms, floors, fixtures, dust, and hard-to-reach areas.',
   },
   {
-    title: 'Housekeepers & Maids',
-    description: 'Dependable household help for everyday maintenance and detailed resets.',
+    title: 'Move & Turnover Cleaning',
+    description: 'Move-in, move-out, post-renovation, and post-construction cleanup for a fresh start.',
   },
   {
-    title: 'Household Support',
-    description: 'Cleaning ladies, housekeepers, maids, and nanny support for busy homes.',
+    title: 'Commercial & Building Care',
+    description: 'Professional cleaning for offices, stores, buildings, shared spaces, and high-traffic properties.',
   },
+]
+
+const residentialServices = [
+  {
+    title: 'General Cleaning',
+    description: 'Routine home care for dusting, surfaces, kitchens, bathrooms, floors, bedrooms, and living areas.',
+  },
+  {
+    title: 'Deep Cleaning',
+    description: 'A more detailed reset for buildup, neglected spaces, seasonal cleaning, or first-time visits.',
+  },
+  {
+    title: 'House Cleaning',
+    description: 'Reliable apartment, condo, and house cleaning planned around your family schedule.',
+  },
+  {
+    title: 'Passover Cleaning',
+    description: 'Careful pre-holiday cleaning support for kitchens, cabinets, surfaces, rooms, and household prep.',
+  },
+  {
+    title: 'Move In / Move Out Cleaning',
+    description: 'Detailed cleaning before settling into a new home or after emptying a space.',
+  },
+  {
+    title: 'Floor Cleaning',
+    description: 'Support for swept, vacuumed, mopped, and carefully maintained floors throughout the home.',
+  },
+  {
+    title: 'Window Washing',
+    description: 'Interior window and glass cleaning to brighten rooms and remove fingerprints, dust, and residue.',
+  },
+  {
+    title: 'Post-Construction Cleaning',
+    description: 'Dust, debris, and finish cleanup after renovations, repairs, updates, or construction work.',
+  },
+  {
+    title: 'Building Maintenance',
+    description: 'Ongoing upkeep for lobbies, hallways, stairs, shared residential spaces, and small buildings.',
+  },
+]
+
+const commercialServices = [
+  'Office complexes and professional suites',
+  'Hospitality and short-term rental turnovers',
+  'Retail stores and customer-facing spaces',
+  'Restaurants and daily service areas',
+  'Schools, childcare, and learning spaces',
+  'Medical and wellness offices',
+  'Warehouses and back-of-house areas',
+  'Residential complexes and high-rise buildings',
+  'Sports, event, and entertainment venues',
+  'Interior and exterior window cleaning',
+  'Rough, detailed, and final construction cleanup',
 ]
 
 const values = [
   {
-    title: 'Reliability',
-    description: 'Responsive scheduling and dependable support when your space needs attention.',
+    title: 'Reliable Scheduling',
+    description: 'Responsive communication and dependable appointments for busy Brooklyn families.',
     icon: BadgeCheck,
   },
   {
-    title: 'Professionalism',
-    description: 'Clear communication, respectful service, and a polished client experience.',
+    title: 'Detailed Service',
+    description: 'Careful cleaning plans shaped around how your home is actually used.',
     icon: ShieldCheck,
   },
   {
-    title: 'Quality',
-    description: 'Detail-minded cleaning standards for homes, offices, and commercial spaces.',
+    title: 'Professional Care',
+    description: 'Respectful, organized, quality-minded support for homes, buildings, and workspaces.',
     icon: Sparkles,
   },
 ]
@@ -65,41 +118,39 @@ const serviceAreas = [
   { name: 'Queens', featured: true },
   { name: 'Bronx' },
   { name: 'Staten Island' },
-  { name: 'Long Island', featured: true },
-  { name: 'Five Towns' },
-  { name: 'Jersey City', featured: true },
-  { name: 'Lakewood', featured: true },
-  { name: 'Teaneck' },
-  { name: 'Englewood' },
-  { name: 'Deal' },
-  { name: 'Monsey' },
-  { name: 'Spring Valley' },
-  { name: 'Monroe' },
-  { name: 'New Square' },
-  { name: 'Catskills' },
-  { name: 'Connecticut', featured: true },
-]
-
-const socialLinks = [
-  { label: 'Facebook', href: 'https://www.facebook.com/cleaningservice' },
-  { label: 'X / Twitter', href: 'https://twitter.com/balabustaNYC' },
-  { label: 'Instagram', href: 'https://www.instagram.com/balabustabrooklyn' },
+  { name: 'Crown Heights', featured: true },
+  { name: 'Borough Park', featured: true },
+  { name: 'Flatbush', featured: true },
+  { name: 'Park Slope' },
+  { name: 'Williamsburg' },
+  { name: 'Brooklyn Heights' },
+  { name: 'Bay Ridge' },
+  { name: 'Bed-Stuy' },
+  { name: 'Bushwick' },
+  { name: 'DUMBO' },
+  { name: 'Midwood' },
+  { name: 'NYC families', featured: true },
 ]
 
 const estimateFields = {
   services: [
-    'Residential cleaning',
+    'General home cleaning',
+    'Deep cleaning',
+    'Move in / move out cleaning',
+    'Passover cleaning',
+    'Post-construction cleaning',
+    'Window washing',
+    'Floor cleaning',
+    'Building maintenance',
     'Commercial cleaning',
-    'Housekeeping / maids',
-    'Cleaning ladies',
-    'Nannies / household support',
   ],
   properties: [
     'Apartment',
     'House',
+    'Condo',
     'Office',
-    'Storefront',
-    'Building / shared space',
+    'Building / shared areas',
+    'Retail or commercial space',
     'Other',
   ],
   frequencies: ['One-time', 'Weekly', 'Biweekly', 'Monthly', 'Not sure yet'],
@@ -233,7 +284,7 @@ function App() {
 
     const formData = new FormData(event.currentTarget)
     const message = [
-      'Estimate request for Balabusta Inc.',
+      `Cleaning request for ${businessName}`,
       `Name: ${formData.get('name') ?? ''}`,
       `Email: ${formData.get('email') ?? ''}`,
       `Phone: ${formData.get('phone') ?? ''}`,
@@ -257,7 +308,7 @@ function App() {
           <a
             href="#home"
             className="brand-lockup flex items-center gap-3 text-neutral-950"
-            aria-label="Balabusta Inc. home"
+            aria-label={`${businessName} home`}
           >
             <img
               alt=""
@@ -268,10 +319,10 @@ function App() {
             />
             <span className="flex flex-col leading-none">
               <span className="font-serif text-xl font-semibold">
-                Balabusta Inc.
+                Balabusta Brooklyn
               </span>
               <span className="mt-1 hidden text-xs font-semibold uppercase text-neutral-500 sm:block">
-                Professional Cleaning
+                Cleaning Services
               </span>
             </span>
           </a>
@@ -293,7 +344,8 @@ function App() {
             className="nav-cta inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold text-white"
             href="#contact"
           >
-            Contact us
+            <span className="hidden sm:inline">Request a Cleaning</span>
+            <span className="sm:hidden">Request</span>
           </a>
         </nav>
       </header>
@@ -302,13 +354,12 @@ function App() {
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 lg:grid-cols-2 lg:items-center lg:py-16">
           <div className="relative z-10 max-w-3xl">
             <h1 className="max-w-3xl font-serif text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
-              Reliable cleaning for homes and businesses.
+              Brooklyn home cleaning that feels handled.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-700 sm:text-lg">
-              Balabusta Inc. serves residential and commercial clients with
-              professional cleaning, housekeepers, maids, cleaning ladies, and
-              household support across New York, New Jersey, Connecticut, and
-              the Tristate Area.
+              {businessName} helps families, apartments, and residential
+              buildings across Brooklyn and New York City stay fresh, organized,
+              and ready for real life with reliable, detailed cleaning services.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
@@ -316,14 +367,28 @@ function App() {
                 href="#contact"
               >
                 <Send aria-hidden="true" size={19} />
-                Request an estimate
+                Request a Cleaning
               </a>
               <a
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-neutral-950/15 bg-white px-6 py-4 text-base font-semibold text-neutral-950 shadow-sm transition hover:border-neutral-950"
                 href={phoneHref}
               >
                 <Phone aria-hidden="true" size={19} />
-                Call {phoneDisplay}
+                Call Now
+              </a>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold text-neutral-700">
+              <a className="transition hover:text-rose-800" href={smsHref}>
+                Text Us
+              </a>
+              <span aria-hidden="true">/</span>
+              <a
+                className="transition hover:text-rose-800"
+                href={whatsappHref}
+                rel="noreferrer"
+                target="_blank"
+              >
+                Message Us on WhatsApp
               </a>
             </div>
           </div>
@@ -338,7 +403,7 @@ function App() {
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white sm:p-8">
               <p className="text-sm font-semibold uppercase">Here to help</p>
               <p className="mt-3 max-w-md text-2xl font-semibold leading-tight sm:text-3xl">
-                Modern cleaning support, built around your schedule.
+                Detailed residential cleaning, built around your family schedule.
               </p>
             </div>
           </div>
@@ -348,12 +413,12 @@ function App() {
       <section className="geometric-band border-y border-neutral-950 bg-neutral-950 py-4 text-white">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-5 text-center text-sm font-semibold sm:px-8">
           <span>Housekeepers</span>
-          <span>Commercial Cleaning</span>
-          <span>Residential Cleaning</span>
-          <span>Cleaning Ladies</span>
-          <span>Maids</span>
-          <span>Nannies</span>
-          <span>Call or text {phoneDisplay}</span>
+          <span>Deep Cleaning</span>
+          <span>Move-In / Move-Out</span>
+          <span>Passover Cleaning</span>
+          <span>Window Washing</span>
+          <span>Post-Construction</span>
+          <span>Call {phoneDisplay}</span>
         </div>
       </section>
 
@@ -361,16 +426,16 @@ function App() {
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div className="scroll-reveal reveal-left">
             <p className="text-sm font-bold uppercase text-rose-800">
-              Residential and commercial services
+              Residential-first cleaning services
             </p>
             <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-4xl">
-              Cleaning services that feel considered, not cookie-cutter.
+              The services families ask for most, organized clearly.
             </h2>
           </div>
           <p className="scroll-reveal reveal-right max-w-2xl text-lg leading-8 text-neutral-700">
-            From apartments and family homes to offices and storefronts, we make
-            it easy to get dependable cleaning help matched to the way your
-            space is actually used.
+            From regular upkeep to deep cleaning, holiday prep, moves, windows,
+            floors, and construction dust, we make it easy to request the right
+            level of cleaning for your Brooklyn home or building.
           </p>
         </div>
 
@@ -388,6 +453,62 @@ function App() {
             </article>
           ))}
         </div>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-[1.35fr_0.65fr]">
+          <div className="scroll-reveal reveal-left border border-neutral-950/10 bg-white/85 p-6 shadow-sm sm:p-8">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-sm font-bold uppercase text-rose-800">
+                  Home cleaning menu
+                </p>
+                <h3 className="mt-3 font-serif text-3xl font-semibold">
+                  Residential services
+                </h3>
+              </div>
+              <a
+                className="inline-flex items-center justify-center rounded-full bg-rose-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-950"
+                href="#contact"
+              >
+                Get a Free Estimate
+              </a>
+            </div>
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {residentialServices.map((service, index) => (
+                <article
+                  className={`scroll-reveal ${
+                    revealDirections[index % revealDirections.length]
+                  } border border-neutral-950/10 bg-[#f8f4ec]/80 p-5`}
+                  key={service.title}
+                  style={revealStyle(index, 35)}
+                >
+                  <h4 className="font-serif text-xl font-semibold">
+                    {service.title}
+                  </h4>
+                  <p className="mt-3 leading-7 text-neutral-700">
+                    {service.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <aside className="scroll-reveal reveal-right bg-neutral-950 p-6 text-white shadow-2xl shadow-neutral-950/20 sm:p-8">
+            <p className="text-sm font-bold uppercase text-rose-200">
+              Commercial and specialty
+            </p>
+            <h3 className="mt-3 font-serif text-3xl font-semibold">
+              Flexible cleaning for buildings and businesses.
+            </h3>
+            <ul className="mt-6 space-y-3 text-white/75">
+              {commercialServices.map((service) => (
+                <li className="flex gap-3" key={service}>
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-300" />
+                  <span>{service}</span>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        </div>
       </section>
 
       <section id="values" className="relative overflow-hidden bg-neutral-950 px-5 py-20 text-white sm:px-8">
@@ -397,7 +518,7 @@ function App() {
               What we stand for
             </p>
             <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-4xl">
-              Reliable, professional, quality cleaning.
+              Reliable, detailed, professional cleaning.
             </h2>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
@@ -425,10 +546,10 @@ function App() {
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
             <div className="scroll-reveal reveal-left">
               <p className="text-sm font-bold uppercase text-rose-800">
-                Now everywhere
+                Brooklyn and New York City
               </p>
               <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-4xl">
-                Serving key NYC boroughs, NJ, CT, and beyond.
+                Serving Brooklyn families and clients across NYC.
               </h2>
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -495,7 +616,7 @@ function App() {
               Available to help you anytime.
             </h2>
             <p className="mt-4 text-lg text-white/75">
-              Request an estimate, call, text, or use WhatsApp at {phoneDisplay}.
+              Request a cleaning, call, text, or use WhatsApp at {phoneDisplay}.
             </p>
           </article>
         </div>
@@ -505,15 +626,14 @@ function App() {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="scroll-reveal reveal-left">
             <p className="text-sm font-bold uppercase text-rose-200">
-              Request an estimate
+              Request a Cleaning
             </p>
             <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-5xl">
               Tell us what needs cleaning.
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-8 text-white/75">
-              For residential or commercial cleaning, share a few details and we
-              will follow up. You can also call, text, or message us on
-              WhatsApp anytime.
+              Share a few details and we will follow up with a free estimate.
+              You can also call now, text us, or message us on WhatsApp.
             </p>
             <div className="mt-9 space-y-5 text-lg">
               <a className="flex items-center gap-3" href={phoneHref}>
@@ -526,7 +646,7 @@ function App() {
                   className="text-rose-200"
                   size={22}
                 />
-                Call us or text us anytime
+                Text Us
               </a>
               <a
                 className="flex items-center gap-3"
@@ -535,7 +655,7 @@ function App() {
                 target="_blank"
               >
                 <Send aria-hidden="true" className="text-rose-200" size={22} />
-                Message us on WhatsApp
+                Message Us on WhatsApp
               </a>
               <a
                 className="flex items-start gap-3 transition hover:text-rose-200"
@@ -580,7 +700,7 @@ function App() {
                 Estimate details
               </p>
               <h3 className="mt-2 font-serif text-2xl font-semibold">
-                Request cleaning service
+                Get a Free Estimate
               </h3>
             </div>
             <form className="grid gap-5" onSubmit={handleContactSubmit}>
@@ -671,7 +791,7 @@ function App() {
                 type="submit"
               >
                 <Send aria-hidden="true" size={18} />
-                Send
+                Request Cleaning
               </button>
             </form>
           </div>
@@ -690,15 +810,15 @@ function App() {
                 width="48"
               />
               <div>
-                <p className="text-2xl font-bold">Balabusta Inc.</p>
+                <p className="text-2xl font-bold">Balabusta Brooklyn</p>
                 <p className="mt-1 text-sm font-semibold uppercase text-teal-100/65">
-                  Professional Cleaning
+                  Cleaning Services
                 </p>
               </div>
             </div>
             <p className="mt-6 max-w-sm leading-7 text-teal-50/75">
-              Reliable residential and commercial cleaning support across key
-              NYC boroughs, New Jersey, Connecticut, and surrounding areas.
+              Reliable residential cleaning, deep cleaning, move cleaning, and
+              building maintenance for Brooklyn families and NYC clients.
             </p>
             <p className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-100">
               <ShieldCheck aria-hidden="true" size={17} />
@@ -757,7 +877,14 @@ function App() {
                 target="_blank"
               >
                 <MessageCircle aria-hidden="true" size={18} />
-                WhatsApp
+                Message Us on WhatsApp
+              </a>
+              <a
+                className="flex items-center gap-3 transition hover:text-white"
+                href={smsHref}
+              >
+                <MessageCircle aria-hidden="true" size={18} />
+                Text Us
               </a>
               <a
                 className="flex items-start gap-3 transition hover:text-white"
@@ -772,32 +899,27 @@ function App() {
                   Brooklyn, NY 11213
                 </span>
               </a>
-              <div className="flex flex-wrap gap-4 pt-2">
-                {socialLinks.map((link) => (
-                  <a
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-amber-100"
-                    href={link.href}
-                    key={link.label}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    {link.label === 'Instagram' ? (
-                      <Camera aria-hidden="true" size={16} />
-                    ) : null}
-                    {link.label}
-                  </a>
-                ))}
-              </div>
             </div>
           </div>
         </div>
         <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-3 border-t border-teal-100/15 pt-6 text-sm text-teal-50/55 sm:flex-row sm:items-center sm:justify-between">
-          <p>Copyright © 2020 BALABUSTA INC. - All Rights Reserved.</p>
+          <p>Copyright © 2020 {businessName}. All Rights Reserved.</p>
           <a className="font-semibold transition hover:text-white" href="#contact">
-            Request an estimate
+            Request a Cleaning
           </a>
         </div>
       </footer>
+
+      <a
+        aria-label="Message Balabusta Brooklyn Cleaning Services on WhatsApp"
+        className="floating-whatsapp"
+        href={whatsappHref}
+        rel="noreferrer"
+        target="_blank"
+      >
+        <MessageCircle aria-hidden="true" size={22} />
+        <span>WhatsApp</span>
+      </a>
     </main>
   )
 }
