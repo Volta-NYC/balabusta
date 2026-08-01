@@ -458,7 +458,6 @@ textarea {
   padding: 0 0 0.9rem;
   overflow-x: auto;
   scroll-padding-inline: 1px;
-  scroll-snap-type: x mandatory;
   scrollbar-color: rgba(255, 255, 255, 0.34) transparent;
 }
 
@@ -479,18 +478,38 @@ textarea {
   flex: 0 0 min(34rem, 42%);
   height: clamp(240px, 27vw, 360px);
   overflow: hidden;
-  padding: 0.45rem;
+  padding: 0.55rem;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 36%),
-    #f8f4ec;
-  border: 2px solid rgba(248, 244, 236, 0.72);
-  scroll-snap-align: start;
-  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.32);
+    linear-gradient(#f8f4ec, #f8f4ec) padding-box,
+    conic-gradient(from 45deg, #be752a, #f8f4ec, #9f003a, #07574f, #be752a)
+      border-box;
+  border: 3px solid transparent;
+  box-shadow:
+    0 26px 60px rgba(0, 0, 0, 0.32),
+    inset 0 0 0 1px rgba(8, 8, 8, 0.14);
+}
+
+.carousel-slide::before {
+  position: absolute;
+  inset: 0.95rem;
+  z-index: 2;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(#f8f4ec 0 0) top left / 3.1rem 2px no-repeat,
+    linear-gradient(#f8f4ec 0 0) top left / 2px 3.1rem no-repeat,
+    linear-gradient(#f8f4ec 0 0) top right / 3.1rem 2px no-repeat,
+    linear-gradient(#f8f4ec 0 0) top right / 2px 3.1rem no-repeat,
+    linear-gradient(#f8f4ec 0 0) bottom left / 3.1rem 2px no-repeat,
+    linear-gradient(#f8f4ec 0 0) bottom left / 2px 3.1rem no-repeat,
+    linear-gradient(#f8f4ec 0 0) bottom right / 3.1rem 2px no-repeat,
+    linear-gradient(#f8f4ec 0 0) bottom right / 2px 3.1rem no-repeat;
+  opacity: 0.92;
 }
 
 .carousel-slide::after {
   position: absolute;
-  inset: 0.45rem;
+  inset: 0.55rem;
   pointer-events: none;
   content: "";
   background:
@@ -499,7 +518,8 @@ textarea {
 }
 
 .carousel-slide img {
-  border: 1px solid rgba(8, 8, 8, 0.28);
+  display: block;
+  border: 1px solid rgba(8, 8, 8, 0.3);
   transform: scale(1.03);
   transition: transform 500ms ease;
 }

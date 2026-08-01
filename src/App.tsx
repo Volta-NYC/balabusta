@@ -311,11 +311,40 @@ function App() {
       return undefined
     }
 
-    const interval = window.setInterval(() => {
-      scrollCarousel('next')
-    }, 4200)
+    let driftPosition = 0
+    let animationFrame = 0
+    let previousTimestamp = performance.now()
 
-    return () => window.clearInterval(interval)
+    function driftCarousel(timestamp: number) {
+      const carousel = carouselRef.current
+
+      if (carousel) {
+        const loopWidth =
+          carousel.children[carouselImages.length]?.getBoundingClientRect()
+            .left -
+          carousel.children[0]?.getBoundingClientRect().left
+        const elapsed = timestamp - previousTimestamp
+
+        if (Math.abs(carousel.scrollLeft - driftPosition) > 2) {
+          driftPosition = carousel.scrollLeft
+        }
+
+        driftPosition += elapsed * 0.035
+
+        if (loopWidth > 0 && driftPosition >= loopWidth) {
+          driftPosition -= loopWidth
+        }
+
+        carousel.scrollLeft = driftPosition
+      }
+
+      previousTimestamp = timestamp
+      animationFrame = window.requestAnimationFrame(driftCarousel)
+    }
+
+    animationFrame = window.requestAnimationFrame(driftCarousel)
+
+    return () => window.cancelAnimationFrame(animationFrame)
   }, [])
 
   function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
@@ -343,18 +372,12 @@ function App() {
       return
     }
 
-    const scrollAmount = carousel.clientWidth * 0.72
-    const isAtEnd =
-      carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 24
+    const scrollAmount = carousel.clientWidth * 0.62
+    const loopWidth = carousel.scrollWidth / 2
     const isAtStart = carousel.scrollLeft <= 8
 
-    if (direction === 'next' && isAtEnd) {
-      carousel.scrollTo({ left: 0, behavior: 'smooth' })
-      return
-    }
-
     if (direction === 'previous' && isAtStart) {
-      carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' })
+      carousel.scrollLeft += loopWidth
       return
     }
 
@@ -725,12 +748,12 @@ function App() {
             className="carousel-track mt-10"
             ref={carouselRef}
           >
-            {carouselImages.map((image, index) => (
+            {[...carouselImages, ...carouselImages].map((image, index) => (
               <article
                 className={`carousel-slide scroll-reveal reveal-card ${
                   revealDirections[index % revealDirections.length]
                 }`}
-                key={image.src}
+                key={`${image.src}-${index}`}
                 style={revealStyle(index, 55)}
               >
                 <img
