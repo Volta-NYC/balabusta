@@ -410,6 +410,120 @@ textarea {
   color: rgba(255, 255, 255, 0.17);
 }
 
+.image-carousel-section {
+  position: relative;
+  background:
+    linear-gradient(180deg, #2a000f 0%, #470019 52%, #080808 100%);
+}
+
+.image-carousel-section::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(8, 8, 8, 0.7), transparent 18%, transparent 82%, rgba(8, 8, 8, 0.7)),
+    radial-gradient(circle at 22% 0%, rgba(190, 117, 42, 0.24), transparent 34%),
+    radial-gradient(circle at 82% 14%, rgba(159, 0, 58, 0.28), transparent 32%);
+}
+
+.image-carousel-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.carousel-control:hover {
+  background-color: #9f003a;
+  transform: translateY(-2px);
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  padding: 0 0 0.9rem;
+  overflow-x: auto;
+  scroll-padding-inline: 1px;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: rgba(255, 255, 255, 0.34) transparent;
+}
+
+.carousel-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-track::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.carousel-slide {
+  position: relative;
+  flex: 0 0 min(44rem, 54%);
+  height: clamp(290px, 34vw, 470px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  scroll-snap-align: start;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.32);
+}
+
+.carousel-slide::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(180deg, transparent 48%, rgba(8, 8, 8, 0.78)),
+    linear-gradient(135deg, rgba(190, 117, 42, 0.18), transparent 32%);
+}
+
+.carousel-slide img {
+  transform: scale(1.03);
+  transition: transform 500ms ease;
+}
+
+.carousel-slide:hover img {
+  transform: scale(1.08);
+}
+
+.carousel-slide-label {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  display: flex;
+}
+
+.carousel-slide-label span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  background: rgba(8, 8, 8, 0.74);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+}
+
 @media (min-width: 1024px) {
   .proof-card-crimson {
     margin-top: 2rem;
@@ -538,6 +652,15 @@ textarea {
 
   .proof-card {
     min-height: 280px;
+  }
+
+  .carousel-track {
+    gap: 0.8rem;
+  }
+
+  .carousel-slide {
+    flex-basis: 82%;
+    height: 320px;
   }
 
   .floating-whatsapp {

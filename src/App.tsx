@@ -1,5 +1,7 @@
 import {
   BadgeCheck,
+  ChevronLeft,
+  ChevronRight,
   Languages,
   MapPin,
   MessageCircle,
@@ -8,7 +10,7 @@ import {
   ShieldCheck,
   Sparkles,
 } from 'lucide-react'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import type { CSSProperties, FormEvent } from 'react'
 
 const businessName = 'Balabusta Brooklyn Cleaning Services'
@@ -112,6 +114,29 @@ const values = [
   },
 ]
 
+const carouselImages = [
+  {
+    src: '/carousel-reliable-help.jpg',
+    alt: 'Cleaner wiping a kitchen counter with cleaning supplies nearby',
+    label: 'Detailed kitchen resets',
+  },
+  {
+    src: '/carousel-housekeeper.jpg',
+    alt: 'Clean living area with warm lighting and organized shelves',
+    label: 'Fresh living areas',
+  },
+  {
+    src: '/carousel-bright-home.jpg',
+    alt: 'Bright, tidy dining room and sitting area',
+    label: 'Fresh family spaces',
+  },
+  {
+    src: '/carousel-polished-home.jpg',
+    alt: 'Clean living room with polished floors and soft seating',
+    label: 'Move-in clean finishes',
+  },
+]
+
 const serviceAreas = [
   { name: 'Brooklyn', featured: true },
   { name: 'Manhattan', featured: true },
@@ -207,6 +232,8 @@ function FluidBackground() {
 }
 
 function App() {
+  const carouselRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     const revealElements = Array.from(
       document.querySelectorAll<HTMLElement>('.scroll-reveal'),
@@ -295,6 +322,21 @@ function App() {
     ].join('\n')
 
     window.open(`${whatsappHref}?text=${encodeURIComponent(message)}`, '_blank')
+  }
+
+  function scrollCarousel(direction: 'previous' | 'next') {
+    const carousel = carouselRef.current
+
+    if (!carousel) {
+      return
+    }
+
+    const scrollAmount = carousel.clientWidth * 0.82
+
+    carousel.scrollBy({
+      left: direction === 'next' ? scrollAmount : -scrollAmount,
+      behavior: 'smooth',
+    })
   }
 
   return (
@@ -619,6 +661,64 @@ function App() {
               Request a cleaning, call, text, or use WhatsApp at {phoneDisplay}.
             </p>
           </article>
+        </div>
+      </section>
+
+      <section className="image-carousel-section overflow-hidden px-5 py-20 text-white sm:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="scroll-reveal reveal-left flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-sm font-bold uppercase text-rose-200">
+                A cleaner rhythm at home
+              </p>
+              <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-4xl">
+                A closer look at the spaces we help keep ready.
+              </h2>
+            </div>
+            <div className="flex gap-3">
+              <button
+                aria-label="Show previous carousel images"
+                className="carousel-control"
+                onClick={() => scrollCarousel('previous')}
+                type="button"
+              >
+                <ChevronLeft aria-hidden="true" size={22} />
+              </button>
+              <button
+                aria-label="Show next carousel images"
+                className="carousel-control"
+                onClick={() => scrollCarousel('next')}
+                type="button"
+              >
+                <ChevronRight aria-hidden="true" size={22} />
+              </button>
+            </div>
+          </div>
+
+          <div
+            aria-label="Cleaning service image carousel"
+            className="carousel-track mt-10"
+            ref={carouselRef}
+          >
+            {carouselImages.map((image, index) => (
+              <article
+                className={`carousel-slide scroll-reveal reveal-card ${
+                  revealDirections[index % revealDirections.length]
+                }`}
+                key={image.src}
+                style={revealStyle(index, 55)}
+              >
+                <img
+                  alt={image.alt}
+                  className="h-full w-full object-cover"
+                  src={image.src}
+                />
+                <div className="carousel-slide-label">
+                  <span>{image.label}</span>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
