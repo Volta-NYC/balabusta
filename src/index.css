@@ -48,21 +48,27 @@ textarea {
 .site-shell::before {
   position: fixed;
   inset: 0;
-  z-index: 15;
+  z-index: 0;
   pointer-events: none;
   content: "";
   background-image: url("/islamic-pattern.svg");
-  background-position: center top;
-  background-size: 168px 168px;
-  opacity: 0.12;
+  background-position: center 28px;
+  background-size: 132px 132px;
+  mix-blend-mode: multiply;
+  opacity: 0.16;
 }
 
 .fluid-background {
   position: fixed;
   inset: 0;
-  z-index: 14;
+  z-index: 0;
   pointer-events: none;
   overflow: hidden;
+}
+
+.site-shell > :not(.fluid-background):not(.floating-whatsapp) {
+  position: relative;
+  z-index: 1;
 }
 
 .fluid-current {
@@ -517,7 +523,8 @@ textarea {
 
 @media (max-width: 768px) {
   .site-shell::before {
-    background-size: 136px 136px;
+    background-position: center 16px;
+    background-size: 112px 112px;
   }
 
   .fluid-current {
