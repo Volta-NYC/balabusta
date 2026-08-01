@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="156" height="156" viewBox="0 0 156 156">
-  <rect width="156" height="156" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="168" height="168" viewBox="0 0 168 168">
+  <rect width="168" height="168" fill="none"/>
   <g fill="none" stroke-linecap="square" stroke-linejoin="miter">
-    <path stroke="#07574f" stroke-width="2.4" d="M78 6 114 42 78 78 42 42 78 6z"/>
-    <path stroke="#07574f" stroke-width="2.4" d="M78 78 114 114 78 150 42 114 78 78z"/>
-    <path stroke="#07574f" stroke-width="2.4" d="M6 78 42 42 78 78 42 114 6 78z"/>
-    <path stroke="#07574f" stroke-width="2.4" d="M78 78 114 42 150 78 114 114 78 78z"/>
-    <path stroke="#be752a" stroke-width="1.8" d="M78 24 132 78 78 132 24 78 78 24z"/>
-    <path stroke="#be752a" stroke-width="1.8" d="M0 0 42 42M156 0 114 42M0 156 42 114M156 156 114 114"/>
-    <path stroke="#07574f" stroke-width="1.3" d="M42 42h72v72H42z"/>
-    <path stroke="#be752a" stroke-width="1.3" d="M78 6v144M6 78h144"/>
+    <path stroke="#07574f" stroke-width="2.1" d="M84 8 122 46 122 84 84 122 46 84 46 46 84 8z"/>
+    <path stroke="#be752a" stroke-width="1.8" d="M84 24 144 84 84 144 24 84 84 24z"/>
+    <path stroke="#07574f" stroke-width="1.6" d="M8 84 46 46h76l38 38-38 38H46L8 84z"/>
+    <path stroke="#be752a" stroke-width="1.2" d="M84 8v152M8 84h152"/>
+    <path stroke="#07574f" stroke-width="1.1" d="M46 46 122 122M122 46 46 122"/>
+    <path stroke="#be752a" stroke-width="1.4" d="M0 0 46 46M168 0 122 46M0 168 46 122M168 168 122 122"/>
+    <path stroke="#07574f" stroke-width="1" d="M84 46 106 84 84 122 62 84 84 46z"/>
+    <path stroke="#be752a" stroke-width="1" d="M46 84 84 62 122 84 84 106 46 84z"/>
   </g>
 </svg>
