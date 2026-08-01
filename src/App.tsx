@@ -118,22 +118,18 @@ const carouselImages = [
   {
     src: '/carousel-reliable-help.jpg',
     alt: 'Cleaner wiping a kitchen counter with cleaning supplies nearby',
-    label: 'Detailed kitchen resets',
   },
   {
     src: '/carousel-housekeeper.jpg',
     alt: 'Clean living area with warm lighting and organized shelves',
-    label: 'Fresh living areas',
   },
   {
     src: '/carousel-bright-home.jpg',
     alt: 'Bright, tidy dining room and sitting area',
-    label: 'Fresh family spaces',
   },
   {
     src: '/carousel-polished-home.jpg',
     alt: 'Clean living room with polished floors and soft seating',
-    label: 'Move-in clean finishes',
   },
 ]
 
@@ -306,6 +302,22 @@ function App() {
     }
   }, [])
 
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
+
+    if (prefersReducedMotion) {
+      return undefined
+    }
+
+    const interval = window.setInterval(() => {
+      scrollCarousel('next')
+    }, 4200)
+
+    return () => window.clearInterval(interval)
+  }, [])
+
   function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
@@ -331,7 +343,20 @@ function App() {
       return
     }
 
-    const scrollAmount = carousel.clientWidth * 0.82
+    const scrollAmount = carousel.clientWidth * 0.72
+    const isAtEnd =
+      carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 24
+    const isAtStart = carousel.scrollLeft <= 8
+
+    if (direction === 'next' && isAtEnd) {
+      carousel.scrollTo({ left: 0, behavior: 'smooth' })
+      return
+    }
+
+    if (direction === 'previous' && isAtStart) {
+      carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' })
+      return
+    }
 
     carousel.scrollBy({
       left: direction === 'next' ? scrollAmount : -scrollAmount,
@@ -713,9 +738,6 @@ function App() {
                   className="h-full w-full object-cover"
                   src={image.src}
                 />
-                <div className="carousel-slide-label">
-                  <span>{image.label}</span>
-                </div>
               </article>
             ))}
           </div>

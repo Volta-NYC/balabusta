@@ -476,52 +476,36 @@ textarea {
 
 .carousel-slide {
   position: relative;
-  flex: 0 0 min(44rem, 54%);
-  height: clamp(290px, 34vw, 470px);
+  flex: 0 0 min(34rem, 42%);
+  height: clamp(240px, 27vw, 360px);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0.45rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 36%),
+    #f8f4ec;
+  border: 2px solid rgba(248, 244, 236, 0.72);
   scroll-snap-align: start;
   box-shadow: 0 26px 60px rgba(0, 0, 0, 0.32);
 }
 
 .carousel-slide::after {
   position: absolute;
-  inset: 0;
+  inset: 0.45rem;
   pointer-events: none;
   content: "";
   background:
-    linear-gradient(180deg, transparent 48%, rgba(8, 8, 8, 0.78)),
+    linear-gradient(180deg, transparent 62%, rgba(8, 8, 8, 0.28)),
     linear-gradient(135deg, rgba(190, 117, 42, 0.18), transparent 32%);
 }
 
 .carousel-slide img {
+  border: 1px solid rgba(8, 8, 8, 0.28);
   transform: scale(1.03);
   transition: transform 500ms ease;
 }
 
 .carousel-slide:hover img {
   transform: scale(1.08);
-}
-
-.carousel-slide-label {
-  position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: 1rem;
-  z-index: 1;
-  display: flex;
-}
-
-.carousel-slide-label span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.75rem;
-  padding: 0.75rem 1rem;
-  font-weight: 700;
-  background: rgba(8, 8, 8, 0.74);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
-  backdrop-filter: blur(10px);
 }
 
 @media (min-width: 1024px) {
@@ -659,8 +643,8 @@ textarea {
   }
 
   .carousel-slide {
-    flex-basis: 82%;
-    height: 320px;
+    flex-basis: 76%;
+    height: 280px;
   }
 
   .floating-whatsapp {
