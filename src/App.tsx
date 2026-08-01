@@ -453,7 +453,7 @@ function App() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-rose-800 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-rose-950/15 transition hover:bg-neutral-950"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-900 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-blue-950/15 transition hover:bg-neutral-950"
                 href="#contact"
               >
                 <Send aria-hidden="true" size={19} />
@@ -468,12 +468,12 @@ function App() {
               </a>
             </div>
             <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold text-neutral-700">
-              <a className="transition hover:text-rose-800" href={smsHref}>
+              <a className="transition hover:text-blue-800" href={smsHref}>
                 Text Us
               </a>
               <span aria-hidden="true">/</span>
               <a
-                className="transition hover:text-rose-800"
+                className="transition hover:text-blue-800"
                 href={whatsappHref}
                 rel="noreferrer"
                 target="_blank"
@@ -515,7 +515,7 @@ function App() {
       <section id="services" className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div className="scroll-reveal reveal-left">
-            <p className="text-sm font-bold uppercase text-rose-800">
+            <p className="text-sm font-bold uppercase text-blue-800">
               Residential-first cleaning services
             </p>
             <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-4xl">
@@ -534,7 +534,7 @@ function App() {
             <article
               className={`scroll-reveal reveal-card ${
                 revealDirections[index % revealDirections.length]
-              } border border-neutral-950/10 bg-white/90 p-6 shadow-sm transition hover:-translate-y-1 hover:border-rose-900/30`}
+              } border border-neutral-950/10 bg-white/90 p-6 shadow-sm transition hover:-translate-y-1 hover:border-blue-900/30`}
               key={title}
               style={revealStyle(index)}
             >
@@ -548,7 +548,7 @@ function App() {
           <div className="scroll-reveal reveal-left border border-neutral-950/10 bg-white/85 p-6 shadow-sm sm:p-8">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-sm font-bold uppercase text-rose-800">
+                <p className="text-sm font-bold uppercase text-blue-800">
                   Home cleaning menu
                 </p>
                 <h3 className="mt-3 font-serif text-3xl font-semibold">
@@ -556,7 +556,7 @@ function App() {
                 </h3>
               </div>
               <a
-                className="inline-flex items-center justify-center rounded-full bg-rose-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-950"
+                className="inline-flex items-center justify-center rounded-full bg-blue-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-950"
                 href="#contact"
               >
                 Get a Free Estimate
@@ -583,7 +583,7 @@ function App() {
           </div>
 
           <aside className="scroll-reveal reveal-right bg-neutral-950 p-6 text-white shadow-2xl shadow-neutral-950/20 sm:p-8">
-            <p className="text-sm font-bold uppercase text-rose-200">
+            <p className="text-sm font-bold uppercase text-blue-100">
               Commercial and specialty
             </p>
             <h3 className="mt-3 font-serif text-3xl font-semibold">
@@ -592,7 +592,7 @@ function App() {
             <ul className="mt-6 space-y-3 text-white/75">
               {commercialServices.map((service) => (
                 <li className="flex gap-3" key={service}>
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-300" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-300" />
                   <span>{service}</span>
                 </li>
               ))}
@@ -604,7 +604,7 @@ function App() {
       <section id="values" className="relative overflow-hidden bg-neutral-950 px-5 py-20 text-white sm:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="scroll-reveal reveal-up max-w-3xl">
-            <p className="text-sm font-bold uppercase text-rose-200">
+            <p className="text-sm font-bold uppercase text-blue-100">
               What we stand for
             </p>
             <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-4xl">
@@ -620,7 +620,7 @@ function App() {
                 key={title}
                 style={revealStyle(index)}
               >
-                <Icon aria-hidden="true" className="text-rose-200" size={28} />
+                <Icon aria-hidden="true" className="text-blue-100" size={28} />
                 <h3 className="mt-8 font-serif text-2xl font-semibold">
                   {title}
                 </h3>
@@ -635,7 +635,7 @@ function App() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
             <div className="scroll-reveal reveal-left">
-              <p className="text-sm font-bold uppercase text-rose-800">
+              <p className="text-sm font-bold uppercase text-blue-800">
                 Brooklyn and New York City
               </p>
               <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-4xl">
@@ -647,7 +647,7 @@ function App() {
                 <div
                   className={`scroll-reveal ${
                     revealDirections[index % revealDirections.length]
-                  } border border-rose-900 bg-rose-900 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-950/10`}
+                  } border border-blue-900 bg-blue-900 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-950/10`}
                   key={area.name}
                   style={revealStyle(index, 35)}
                 >
@@ -661,7 +661,7 @@ function App() {
 
       <section className="proof-section px-5 py-20 sm:px-8">
         <div className="mx-auto grid max-w-7xl gap-4 lg:grid-cols-[1.08fr_0.96fr_0.96fr]">
-          <article className="proof-card proof-card-red scroll-reveal reveal-left">
+          <article className="proof-card proof-card-blue scroll-reveal reveal-left">
             <div className="flex items-start justify-between gap-6">
               <ShieldCheck aria-hidden="true" size={34} />
               <span className="proof-card-number">1</span>
@@ -674,7 +674,7 @@ function App() {
             </h2>
           </article>
           <article
-            className="proof-card proof-card-crimson scroll-reveal reveal-up"
+            className="proof-card proof-card-sapphire scroll-reveal reveal-up"
             style={revealStyle(1)}
           >
             <div className="flex items-start justify-between gap-6">
@@ -692,7 +692,7 @@ function App() {
             </p>
           </article>
           <article
-            className="proof-card proof-card-burgundy scroll-reveal reveal-right"
+            className="proof-card proof-card-navy scroll-reveal reveal-right"
             style={revealStyle(2)}
           >
             <div className="flex items-start justify-between gap-6">
@@ -716,7 +716,7 @@ function App() {
         <div className="mx-auto max-w-7xl">
           <div className="scroll-reveal reveal-left flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
-              <p className="text-sm font-bold uppercase text-rose-200">
+              <p className="text-sm font-bold uppercase text-blue-100">
                 A cleaner rhythm at home
               </p>
               <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-4xl">
@@ -767,10 +767,10 @@ function App() {
         </div>
       </section>
 
-      <section id="contact" className="bg-neutral-950 px-5 py-20 text-white sm:px-8">
+      <section id="contact" className="bg-[#071b2f] px-5 py-20 text-white sm:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="scroll-reveal reveal-left">
-            <p className="text-sm font-bold uppercase text-rose-200">
+            <p className="text-sm font-bold uppercase text-blue-100">
               Request a Cleaning
             </p>
             <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight sm:text-5xl">
@@ -782,13 +782,13 @@ function App() {
             </p>
             <div className="mt-9 space-y-5 text-lg">
               <a className="flex items-center gap-3" href={phoneHref}>
-                <Phone aria-hidden="true" className="text-rose-200" size={22} />
+                <Phone aria-hidden="true" className="text-blue-100" size={22} />
                 {phoneDisplay}
               </a>
               <a className="flex items-center gap-3" href={smsHref}>
                 <MessageCircle
                   aria-hidden="true"
-                  className="text-rose-200"
+                  className="text-blue-100"
                   size={22}
                 />
                 Text Us
@@ -799,18 +799,18 @@ function App() {
                 rel="noreferrer"
                 target="_blank"
               >
-                <Send aria-hidden="true" className="text-rose-200" size={22} />
+                <Send aria-hidden="true" className="text-blue-100" size={22} />
                 Message Us on WhatsApp
               </a>
               <a
-                className="flex items-start gap-3 transition hover:text-rose-200"
+                className="flex items-start gap-3 transition hover:text-blue-100"
                 href={mapsUrl}
                 rel="noreferrer"
                 target="_blank"
               >
                 <MapPin
                   aria-hidden="true"
-                  className="mt-1 text-rose-200"
+                  className="mt-1 text-blue-100"
                   size={22}
                 />
                 <address className="not-italic">
@@ -829,7 +829,7 @@ function App() {
                 title={`Map to ${addressDisplay}`}
               />
               <a
-                className="block border-t border-neutral-950/10 px-4 py-3 text-sm font-semibold text-rose-900 transition hover:bg-rose-50"
+                className="block border-t border-neutral-950/10 px-4 py-3 text-sm font-semibold text-blue-900 transition hover:bg-blue-50"
                 href={mapsUrl}
                 rel="noreferrer"
                 target="_blank"
@@ -841,7 +841,7 @@ function App() {
 
           <div className="scroll-reveal reveal-right bg-[#f8f4ec] p-5 text-neutral-950 shadow-2xl shadow-black/30 sm:p-8">
             <div className="mb-6">
-              <p className="text-sm font-bold uppercase text-rose-800">
+              <p className="text-sm font-bold uppercase text-blue-800">
                 Estimate details
               </p>
               <h3 className="mt-2 font-serif text-2xl font-semibold">
@@ -853,7 +853,7 @@ function App() {
                 <label className="grid gap-2 text-sm font-semibold">
                   Name
                   <input
-                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
+                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-blue-800"
                     name="name"
                     type="text"
                   />
@@ -861,7 +861,7 @@ function App() {
                 <label className="grid gap-2 text-sm font-semibold">
                   Email*
                   <input
-                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
+                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-blue-800"
                     name="email"
                     required
                     type="email"
@@ -871,7 +871,7 @@ function App() {
               <label className="grid gap-2 text-sm font-semibold">
                 Phone
                 <input
-                  className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
+                  className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-blue-800"
                   name="phone"
                   type="tel"
                 />
@@ -880,7 +880,7 @@ function App() {
                 <label className="grid gap-2 text-sm font-semibold">
                   Service needed
                   <select
-                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
+                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-blue-800"
                     defaultValue=""
                     name="service"
                   >
@@ -895,7 +895,7 @@ function App() {
                 <label className="grid gap-2 text-sm font-semibold">
                   Property type
                   <select
-                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
+                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-blue-800"
                     defaultValue=""
                     name="property"
                   >
@@ -910,7 +910,7 @@ function App() {
                 <label className="grid gap-2 text-sm font-semibold">
                   Frequency
                   <select
-                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
+                    className="border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-blue-800"
                     defaultValue=""
                     name="frequency"
                   >
@@ -926,13 +926,13 @@ function App() {
               <label className="grid gap-2 text-sm font-semibold">
                 Message
                 <textarea
-                  className="min-h-36 resize-y border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-rose-800"
+                  className="min-h-36 resize-y border border-neutral-950/15 bg-white px-4 py-3 outline-none transition focus:border-blue-800"
                   name="message"
                   placeholder="Tell us the size of the space, preferred timing, and anything that needs special attention."
                 />
               </label>
               <button
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-rose-800 px-6 py-4 font-semibold text-white transition hover:bg-neutral-950"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-900 px-6 py-4 font-semibold text-white transition hover:bg-neutral-950"
                 type="submit"
               >
                 <Send aria-hidden="true" size={18} />
@@ -943,7 +943,7 @@ function App() {
         </div>
       </section>
 
-      <footer className="border-t border-teal-950 bg-[#063f39] px-5 py-14 text-white sm:px-8">
+      <footer className="border-t border-blue-950 bg-[#051321] px-5 py-14 text-white sm:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
@@ -956,12 +956,12 @@ function App() {
               />
               <div>
                 <p className="text-2xl font-bold">Balabusta Brooklyn</p>
-                <p className="mt-1 text-sm font-semibold uppercase text-teal-100/65">
+                <p className="mt-1 text-sm font-semibold uppercase text-blue-100/65">
                   Cleaning Services
                 </p>
               </div>
             </div>
-            <p className="mt-6 max-w-sm leading-7 text-teal-50/75">
+            <p className="mt-6 max-w-sm leading-7 text-blue-50/75">
               Reliable residential cleaning, deep cleaning, move cleaning, and
               building maintenance for Brooklyn families and NYC clients.
             </p>
@@ -975,7 +975,7 @@ function App() {
             <h2 className="text-sm font-bold uppercase text-amber-100">
               Services
             </h2>
-            <ul className="mt-5 space-y-3 text-teal-50/75">
+            <ul className="mt-5 space-y-3 text-blue-50/75">
               {services.map((service) => (
                 <li key={service.title}>
                   <a className="transition hover:text-white" href="#services">
@@ -990,7 +990,7 @@ function App() {
             <h2 className="text-sm font-bold uppercase text-amber-100">
               Primary Areas
             </h2>
-            <ul className="mt-5 space-y-3 text-teal-50/75">
+            <ul className="mt-5 space-y-3 text-blue-50/75">
               {serviceAreas
                 .filter((area) => area.featured)
                 .map((area) => (
@@ -1007,7 +1007,7 @@ function App() {
             <h2 className="text-sm font-bold uppercase text-amber-100">
               Contact
             </h2>
-            <div className="mt-5 space-y-4 text-teal-50/75">
+            <div className="mt-5 space-y-4 text-blue-50/75">
               <a
                 className="flex items-center gap-3 transition hover:text-white"
                 href={phoneHref}
@@ -1047,7 +1047,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-3 border-t border-teal-100/15 pt-6 text-sm text-teal-50/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-3 border-t border-blue-100/15 pt-6 text-sm text-blue-50/55 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright © 2020 {businessName}. All Rights Reserved.</p>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-5">
             <a
