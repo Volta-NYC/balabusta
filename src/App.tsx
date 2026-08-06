@@ -1051,7 +1051,7 @@ function App() {
           <p>Copyright © 2020 {businessName}. All Rights Reserved.</p>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-5">
             <a
-              className="transition hover:text-white"
+              className="text-[#F6B78D] hover:text-[#F6B78D] transition"
               href="https://novusnyc.org"
               rel="noreferrer"
               target="_blank"
